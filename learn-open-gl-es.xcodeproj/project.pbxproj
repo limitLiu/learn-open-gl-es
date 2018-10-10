@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17D11B4D216E573E006D4361 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B47216E573E006D4361 /* ViewController.m */; };
+		17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B4A216E573E006D4361 /* AppDelegate.m */; };
+		17D11B52216E589A006D4361 /* shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B51216E589A006D4361 /* shader.fs */; };
+		17D11B54216E58A7006D4361 /* shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B53216E58A7006D4361 /* shader.vs */; };
+		17D11B58216E59E1006D4361 /* ShaderProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B57216E59E1006D4361 /* ShaderProcessor.m */; };
 		BB74F3F1216DD0100016BFEB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB74F3F0216DD0100016BFEB /* OpenGLES.framework */; };
 		BB74F3F3216DD01A0016BFEB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB74F3F2216DD01A0016BFEB /* GLKit.framework */; };
-		BB8F083B216A66C70036726C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F083A216A66C70036726C /* AppDelegate.m */; };
-		BB8F083E216A66C70036726C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F083D216A66C70036726C /* ViewController.m */; };
 		BB8F0841216A66C70036726C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8F083F216A66C70036726C /* Main.storyboard */; };
 		BB8F0843216A66C90036726C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB8F0842216A66C90036726C /* Assets.xcassets */; };
 		BB8F0846216A66C90036726C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8F0844216A66C90036726C /* LaunchScreen.storyboard */; };
@@ -18,13 +21,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17D11B47216E573E006D4361 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		17D11B48216E573E006D4361 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		17D11B4A216E573E006D4361 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		17D11B4B216E573E006D4361 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		17D11B51216E589A006D4361 /* shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
+		17D11B53216E58A7006D4361 /* shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.vs; sourceTree = "<group>"; };
+		17D11B56216E59E1006D4361 /* ShaderProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderProcessor.h; sourceTree = "<group>"; };
+		17D11B57216E59E1006D4361 /* ShaderProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShaderProcessor.m; sourceTree = "<group>"; };
 		BB74F3F0216DD0100016BFEB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB74F3F2216DD01A0016BFEB /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		BB8F0836216A66C70036726C /* learn-open-gl-es.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "learn-open-gl-es.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB8F0839216A66C70036726C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		BB8F083A216A66C70036726C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BB8F083C216A66C70036726C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BB8F083D216A66C70036726C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BB8F0840216A66C70036726C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB8F0842216A66C90036726C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB8F0845216A66C90036726C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,6 +52,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17D11B45216E573E006D4361 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				17D11B49216E573E006D4361 /* AppDelegate */,
+				17D11B46216E573E006D4361 /* ViewController */,
+				17D11B4C216E573E006D4361 /* Resource */,
+				17D11B55216E598B006D4361 /* Util */,
+				BB8F0848216A66C90036726C /* main.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		17D11B46216E573E006D4361 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				17D11B48216E573E006D4361 /* ViewController.h */,
+				17D11B47216E573E006D4361 /* ViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		17D11B49216E573E006D4361 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				17D11B4A216E573E006D4361 /* AppDelegate.m */,
+				17D11B4B216E573E006D4361 /* AppDelegate.h */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		17D11B4C216E573E006D4361 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BB8F083F216A66C70036726C /* Main.storyboard */,
+				BB8F0842216A66C90036726C /* Assets.xcassets */,
+				BB8F0844216A66C90036726C /* LaunchScreen.storyboard */,
+				17D11B51216E589A006D4361 /* shader.fs */,
+				17D11B53216E58A7006D4361 /* shader.vs */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		17D11B55216E598B006D4361 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				17D11B56216E59E1006D4361 /* ShaderProcessor.h */,
+				17D11B57216E59E1006D4361 /* ShaderProcessor.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		BB74F3EF216DD0100016BFEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,15 +132,8 @@
 		BB8F0838216A66C70036726C /* learn-open-gl-es */ = {
 			isa = PBXGroup;
 			children = (
-				BB8F0839216A66C70036726C /* AppDelegate.h */,
-				BB8F083A216A66C70036726C /* AppDelegate.m */,
-				BB8F083C216A66C70036726C /* ViewController.h */,
-				BB8F083D216A66C70036726C /* ViewController.m */,
-				BB8F083F216A66C70036726C /* Main.storyboard */,
-				BB8F0842216A66C90036726C /* Assets.xcassets */,
-				BB8F0844216A66C90036726C /* LaunchScreen.storyboard */,
 				BB8F0847216A66C90036726C /* Info.plist */,
-				BB8F0848216A66C90036726C /* main.m */,
+				17D11B45216E573E006D4361 /* Classes */,
 			);
 			path = "learn-open-gl-es";
 			sourceTree = "<group>";
@@ -145,8 +196,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB8F0846216A66C90036726C /* LaunchScreen.storyboard in Resources */,
+				17D11B54216E58A7006D4361 /* shader.vs in Resources */,
 				BB8F0843216A66C90036726C /* Assets.xcassets in Resources */,
 				BB8F0841216A66C70036726C /* Main.storyboard in Resources */,
+				17D11B52216E589A006D4361 /* shader.fs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,9 +210,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB8F083E216A66C70036726C /* ViewController.m in Sources */,
+				17D11B4D216E573E006D4361 /* ViewController.m in Sources */,
 				BB8F0849216A66C90036726C /* main.m in Sources */,
-				BB8F083B216A66C70036726C /* AppDelegate.m in Sources */,
+				17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */,
+				17D11B58216E59E1006D4361 /* ShaderProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
