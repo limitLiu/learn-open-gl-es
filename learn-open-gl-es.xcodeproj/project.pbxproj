@@ -132,8 +132,8 @@
 		BB8F0838216A66C70036726C /* learn-open-gl-es */ = {
 			isa = PBXGroup;
 			children = (
-				BB8F0847216A66C90036726C /* Info.plist */,
 				17D11B45216E573E006D4361 /* Classes */,
+				BB8F0847216A66C90036726C /* Info.plist */,
 			);
 			path = "learn-open-gl-es";
 			sourceTree = "<group>";

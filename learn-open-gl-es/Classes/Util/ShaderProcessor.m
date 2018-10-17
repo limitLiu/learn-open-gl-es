@@ -10,55 +10,17 @@
 
 @implementation ShaderProcessor
 
-+ (GLuint)loadShader {
-    GLuint vertShader, fragShader;
-    GLuint program = glCreateProgram();
-    
-    NSString *vertPath = [[NSBundle mainBundle]
-                          pathForResource:@"shader.vs" ofType:nil];
-    NSString *fragPath =[[NSBundle mainBundle]
-                         pathForResource:@"shader.fs" ofType:nil];
-    
-    if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vertPath]) {
-        NSLog(@"Failed to compile vertex shader");
+- (instancetype)initWithFile:(NSString *)fileName {
+    if (self = [super init]) {
+        _program = [self createProgram:fileName];
     }
-    if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragPath]) {
-        NSLog(@"Failed to compile fragment shader");
-    }
-    glAttachShader(program, vertShader);
-    glAttachShader(program, fragShader);
-    
-    if (![self linkProgram:program]) {
-        NSLog(@"Failed to link program: %d\n", program);
-        if (vertShader) {
-            glDeleteShader(vertShader);
-            vertShader = 0;
-        }
-        if (fragShader) {
-            glDeleteShader(fragShader);
-            fragShader = 0;
-        }
-        if (program) {
-            glDeleteProgram(program);
-            program = 0;
-        }
-    }
-    if (vertShader) {
-        glDetachShader(program, vertShader);
-        glDeleteShader(vertShader);
-    }
-    if (fragShader) {
-        glDetachShader(program, fragShader);
-        glDeleteShader(fragShader);
-    }
-
-    return program;
+    return self;
 }
 
-+ (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file {
+- (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file {
     const GLchar *source = (GLchar *) [[NSString stringWithContentsOfFile:file
-                                            encoding:NSUTF8StringEncoding
-                                               error:nil] UTF8String];
+                                                                 encoding:NSUTF8StringEncoding
+                                                                    error:nil] UTF8String];
     if (!source) {
         NSLog(@"Failed to load vertex shader");
         return NO;
@@ -84,7 +46,30 @@
     return YES;
 }
 
-+ (BOOL)linkProgram:(GLuint)program {
+- (GLuint)createProgram:(NSString *)fileName {
+    GLuint vertexShader = 0, fragmentShader = 0;
+    NSString *v = [[NSBundle mainBundle] pathForResource:fileName ofType:@"vs"];
+    NSString *f = [[NSBundle mainBundle] pathForResource:fileName ofType:@"fs"];
+    [self compileShader:&vertexShader type:GL_VERTEX_SHADER file:v];
+    [self compileShader:&fragmentShader type:GL_FRAGMENT_SHADER file:f];
+    
+    GLuint program = glCreateProgram();
+    
+    glAttachShader(program, vertexShader);
+    glAttachShader(program, fragmentShader);
+    BOOL linked = [self linkProgram:program];
+    glDetachShader(program, vertexShader);
+    glDeleteShader(vertexShader);
+    glDetachShader(program, fragmentShader);
+    glDeleteShader(fragmentShader);
+    if (!linked) {
+        NSLog(@"Failed to link program:%d\n", program);
+        glDeleteProgram(program);
+    }
+    return program;
+}
+
+- (BOOL)linkProgram:(GLuint)program {
     glLinkProgram(program);
     GLint log_len, status;
     glGetProgramiv(program, GL_INFO_LOG_LENGTH, &log_len);
@@ -96,7 +81,7 @@
     }
     glGetProgramiv(program, GL_LINK_STATUS, &status);
     if (status == 0) return NO;
-
+    
     return YES;
 }
 

@@ -11,6 +11,8 @@
 
 @interface ShaderProcessor : NSObject
 
-+ (GLuint)loadShader;
+@property (nonatomic, assign) GLuint program;
+
+- (instancetype)initWithFile:(NSString *)fileName;
 
 @end
