@@ -29,11 +29,11 @@
     
     glShaderSource(*shader, 1, &source, NULL);
     glCompileShader(*shader);
-    
+
     GLint log_len, status;
     glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &log_len);
     if (log_len > 0) {
-        GLchar *log = (GLchar *)malloc(log_len);
+        GLchar *log = (GLchar *)malloc((size_t) log_len);
         glGetShaderInfoLog(*shader, log_len, &log_len, log);
         NSLog(@"shader compile log:\n%s", log);
         free(log);
@@ -48,8 +48,8 @@
 
 - (GLuint)createProgram:(NSString *)fileName {
     GLuint vertexShader = 0, fragmentShader = 0;
-    NSString *v = [[NSBundle mainBundle] pathForResource:fileName ofType:@"vs"];
-    NSString *f = [[NSBundle mainBundle] pathForResource:fileName ofType:@"fs"];
+    NSString *v = [[NSBundle mainBundle] pathForResource:fileName ofType:@"vert"];
+    NSString *f = [[NSBundle mainBundle] pathForResource:fileName ofType:@"frag"];
     [self compileShader:&vertexShader type:GL_VERTEX_SHADER file:v];
     [self compileShader:&fragmentShader type:GL_FRAGMENT_SHADER file:f];
     
@@ -74,15 +74,13 @@
     GLint log_len, status;
     glGetProgramiv(program, GL_INFO_LOG_LENGTH, &log_len);
     if (log_len > 0) {
-        GLchar *log = (GLchar *)malloc(log_len);
+        GLchar *log = (GLchar *)malloc((size_t) log_len);
         glGetProgramInfoLog(program, log_len, &log_len, log);
         NSLog(@"program link log:\n%s", log);
         free(log);
     }
     glGetProgramiv(program, GL_LINK_STATUS, &status);
-    if (status == 0) return NO;
-    
-    return YES;
+    return status != 0;
 }
 
 @end

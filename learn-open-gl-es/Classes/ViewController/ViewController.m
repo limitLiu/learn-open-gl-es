@@ -50,7 +50,7 @@
 - (void)triangle {
     GLKVector3 vec[3] = {
         // left
-        { -0.5, 0.0, 0.0 },
+        { -0.5f, 0.0, 0.0 },
         // right
         { 0.5, 0.0, 0.0 },
         // top
@@ -63,7 +63,7 @@
     glGenBuffers(1, &_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vec), vec, GL_STATIC_DRAW);
-    GLuint idx = glGetAttribLocation(self.program, "aPos");
+    GLuint idx = (GLuint) glGetAttribLocation(self.program, "aPosition");
     glEnableVertexAttribArray(idx);
     glVertexAttribPointer(idx, 3, GL_FLOAT, GL_FALSE, sizeof(GLKVector3), NULL);
     glBindVertexArray(0);
