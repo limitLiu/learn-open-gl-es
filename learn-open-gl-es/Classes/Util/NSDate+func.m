@@ -3,10 +3,10 @@
 // Copyright (c) 2018 limit. All rights reserved.
 //
 
-#import "NSDate+seconds.h"
+#import "NSDate+func.h"
 
 
-@implementation NSDate (seconds)
+@implementation NSDate (func)
 
 + (NSInteger)seconds {
     return [[NSCalendar currentCalendar] components:NSCalendarUnitSecond

@@ -10,7 +10,7 @@
 #import <OpenGLES/ES3/glext.h>
 
 #import "ShaderProcessor.h"
-#import "NSDate+seconds.h"
+#import "NSDate+func.h"
 
 @interface ViewController () <GLKViewDelegate>
 

@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDate (seconds)
+@interface NSDate (func)
 
 + (NSInteger)seconds;
 @end
