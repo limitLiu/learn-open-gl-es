@@ -10,40 +10,12 @@
 
 @implementation ShaderProcessor
 
+#pragma mark - initialize
 - (instancetype)initWithFile:(NSString *)fileName {
     if (self = [super init]) {
         _program = [self createProgram:fileName];
     }
     return self;
-}
-
-- (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file {
-    const GLchar *source = (GLchar *) [[NSString stringWithContentsOfFile:file
-                                                                 encoding:NSUTF8StringEncoding
-                                                                    error:nil] UTF8String];
-    if (!source) {
-        NSLog(@"Failed to load vertex shader");
-        return NO;
-    }
-    *shader = glCreateShader(type);
-    
-    glShaderSource(*shader, 1, &source, NULL);
-    glCompileShader(*shader);
-
-    GLint log_len, status;
-    glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &log_len);
-    if (log_len > 0) {
-        GLchar *log = (GLchar *)malloc((size_t) log_len);
-        glGetShaderInfoLog(*shader, log_len, &log_len, log);
-        NSLog(@"shader compile log:\n%s", log);
-        free(log);
-    }
-    glGetShaderiv(*shader, GL_COMPILE_STATUS, &status);
-    if (status == 0) {
-        glDeleteShader(*shader);
-        return NO;
-    }
-    return YES;
 }
 
 - (GLuint)createProgram:(NSString *)fileName {
@@ -69,6 +41,50 @@
     return program;
 }
 
+#pragma mark out interface
+
+- (void)setFloat:(NSString *)name value:(GLfloat)x {
+    GLint location = glGetUniformLocation(self.program, (GLchar *)name.UTF8String);
+    glUniform1f(location, x);
+}
+
+- (void)useProgram {
+    glUseProgram(self.program);
+}
+
+
+#pragma mark - shader
+#pragma mark compile shader
+- (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file {
+    const GLchar *source = (GLchar *) [NSString stringWithContentsOfFile:file
+                                                                 encoding:NSUTF8StringEncoding
+                                                                    error:nil].UTF8String;
+    if (!source) {
+        NSLog(@"Failed to load vertex shader");
+        return NO;
+    }
+    *shader = glCreateShader(type);
+    
+    glShaderSource(*shader, 1, &source, NULL);
+    glCompileShader(*shader);
+
+    GLint log_len, status;
+    glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &log_len);
+    if (log_len > 0) {
+        GLchar *log = (GLchar *)malloc((size_t) log_len);
+        glGetShaderInfoLog(*shader, log_len, &log_len, log);
+        NSLog(@"shader compile log:\n%s", log);
+        free(log);
+    }
+    glGetShaderiv(*shader, GL_COMPILE_STATUS, &status);
+    if (status == 0) {
+        glDeleteShader(*shader);
+        return NO;
+    }
+    return YES;
+}
+
+#pragma mark link program
 - (BOOL)linkProgram:(GLuint)program {
     glLinkProgram(program);
     GLint log_len, status;

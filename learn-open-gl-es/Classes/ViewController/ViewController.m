@@ -14,7 +14,7 @@
 
 @interface ViewController () <GLKViewDelegate>
 
-@property(nonatomic, assign) GLuint program;
+@property(nonatomic, strong) ShaderProcessor *processor;
 @property(nonatomic, assign) GLuint vao;
 @property(nonatomic, assign) GLuint vbo;
 
@@ -45,8 +45,7 @@
 #pragma mark create program
 
 - (void)createProgram {
-    ShaderProcessor *process = [[ShaderProcessor alloc] initWithFile:@"shader"];
-    self.program = process.program;
+     self.processor = [[ShaderProcessor alloc] initWithFile:@"shader"];
 }
 
 #pragma mark gl config
@@ -54,11 +53,11 @@
 - (void)triangle {
     Float32 vec[18] = {
         // left
-        -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+        -0.5f, -0.1f, 0.0f, 0.0f, 1.0f, 0.0f,
         // right
-        0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+        0.5f, -0.1f, 0.0f, 1.0f, 0.0f, 0.0f,
         // top
-        0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f
+        0.0f, 0.4f, 0.0f, 0.0f, 0.0f, 1.0f
     };
     glEnable(GL_DEPTH_TEST);
     glClearColor(0.1, 0.2, 0.2, 1);
@@ -67,13 +66,11 @@
     glGenBuffers(1, &_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vec), vec, GL_STATIC_DRAW);
-//    GLuint aPosition = (GLuint) glGetAttribLocation(self.program, "aPosition");
     GLuint aPosition = 0;
     glVertexAttribPointer(aPosition, 3, GL_FLOAT, GL_FALSE,
                           6 * sizeof(Float32), (void *)0);
     glEnableVertexAttribArray(aPosition);
     
-//    GLuint aColor = (GLuint) glGetAttribLocation(self.program, "aColor");
     GLuint aColor = 1;
     glVertexAttribPointer(aColor, 3, GL_FLOAT, GL_FALSE,
                           6 * sizeof(Float32), (void *)(3 * sizeof(Float32)));
@@ -81,17 +78,15 @@
 
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glUseProgram(self.program);
-}
-
-- (GLfloat)green {
-    return (sin((GLfloat) NSDate.seconds) / 2.0f) + 0.5f;
+    
+    [self.processor useProgram];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glBindVertexArray(self.vao);
     glDrawArrays(GL_TRIANGLES, 0, 3);
+    [self.processor setFloat:@"yOffset" value:0.1f];
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
