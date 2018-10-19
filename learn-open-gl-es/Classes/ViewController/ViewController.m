@@ -10,12 +10,13 @@
 #import <OpenGLES/ES3/glext.h>
 
 #import "ShaderProcessor.h"
+#import "NSDate+seconds.h"
 
 @interface ViewController () <GLKViewDelegate>
 
-@property (nonatomic, assign) GLuint program;
-@property (nonatomic, assign) GLuint vao;
-@property (nonatomic, assign) GLuint vbo;
+@property(nonatomic, assign) GLuint program;
+@property(nonatomic, assign) GLuint vao;
+@property(nonatomic, assign) GLuint vbo;
 
 @end
 
@@ -30,6 +31,7 @@
 }
 
 #pragma mark setup context
+
 - (void)setupContext {
     EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
     if (!context) NSLog(@"Failed to create ES context");
@@ -41,20 +43,22 @@
 }
 
 #pragma mark create program
+
 - (void)createProgram {
     ShaderProcessor *process = [[ShaderProcessor alloc] initWithFile:@"shader"];
     self.program = process.program;
 }
 
 #pragma mark gl config
+
 - (void)triangle {
     GLKVector3 vec[3] = {
         // left
-        { -0.5f, 0.0, 0.0 },
+        {-0.5f, 0.0, 0.0},
         // right
-        { 0.5, 0.0, 0.0 },
+        {0.5, 0.0, 0.0},
         // top
-        { 0.0, 0.5, 0.0 }
+        {0.0, 0.5, 0.0}
     };
     glEnable(GL_DEPTH_TEST);
     glClearColor(0.1, 0.2, 0.2, 1);
@@ -70,10 +74,18 @@
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
+- (GLfloat)green {
+    GLfloat seconds = (GLfloat) NSDate.seconds;
+    return (sin(seconds) / 2.0f);
+}
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glBindVertexArray(self.vao);
+
+    GLint vertexColorLocation = glGetUniformLocation(self.program, "ourColor");
+    glUniform4f(vertexColorLocation, 0.0, self.green, 0.0, 1.0);
+
     glUseProgram(self.program);
     glDrawArrays(GL_TRIANGLES, 0, 3);
     glBindVertexArray(0);

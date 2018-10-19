@@ -12,6 +12,7 @@
 		17D11B52216E589A006D4361 /* shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B51216E589A006D4361 /* shader.frag */; };
 		17D11B54216E58A7006D4361 /* shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B53216E58A7006D4361 /* shader.vert */; };
 		17D11B58216E59E1006D4361 /* ShaderProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B57216E59E1006D4361 /* ShaderProcessor.m */; };
+		456B7870A5884C3791C60A0A /* NSDate+seconds.m in Sources */ = {isa = PBXBuildFile; fileRef = 456B723C50DD49F6FBD17D76 /* NSDate+seconds.m */; };
 		BB74F3F1216DD0100016BFEB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB74F3F0216DD0100016BFEB /* OpenGLES.framework */; };
 		BB74F3F3216DD01A0016BFEB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB74F3F2216DD01A0016BFEB /* GLKit.framework */; };
 		BB8F0841216A66C70036726C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8F083F216A66C70036726C /* Main.storyboard */; };
@@ -29,6 +30,8 @@
 		17D11B53216E58A7006D4361 /* shader.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.vert; sourceTree = "<group>"; };
 		17D11B56216E59E1006D4361 /* ShaderProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderProcessor.h; sourceTree = "<group>"; };
 		17D11B57216E59E1006D4361 /* ShaderProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShaderProcessor.m; sourceTree = "<group>"; };
+		456B723C50DD49F6FBD17D76 /* NSDate+seconds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+seconds.m"; sourceTree = "<group>"; };
+		456B79B5ABD97C990017773D /* NSDate+seconds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+seconds.h"; sourceTree = "<group>"; };
 		BB74F3F0216DD0100016BFEB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB74F3F2216DD01A0016BFEB /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		BB8F0836216A66C70036726C /* learn-open-gl-es.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "learn-open-gl-es.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +102,8 @@
 			children = (
 				17D11B56216E59E1006D4361 /* ShaderProcessor.h */,
 				17D11B57216E59E1006D4361 /* ShaderProcessor.m */,
+				456B723C50DD49F6FBD17D76 /* NSDate+seconds.m */,
+				456B79B5ABD97C990017773D /* NSDate+seconds.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				BB8F0849216A66C90036726C /* main.m in Sources */,
 				17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */,
 				17D11B58216E59E1006D4361 /* ShaderProcessor.m in Sources */,
+				456B7870A5884C3791C60A0A /* NSDate+seconds.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
