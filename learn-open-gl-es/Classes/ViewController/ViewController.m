@@ -52,13 +52,13 @@
 #pragma mark gl config
 
 - (void)triangle {
-    GLKVector3 vec[3] = {
+    Float32 vec[18] = {
         // left
-        {-0.5f, 0.0, 0.0},
+        -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f,
         // right
-        {0.5, 0.0, 0.0},
+        0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
         // top
-        {0.0, 0.5, 0.0}
+        0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f
     };
     glEnable(GL_DEPTH_TEST);
     glClearColor(0.1, 0.2, 0.2, 1);
@@ -67,11 +67,21 @@
     glGenBuffers(1, &_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vec), vec, GL_STATIC_DRAW);
-    GLuint idx = (GLuint) glGetAttribLocation(self.program, "aPosition");
-    glEnableVertexAttribArray(idx);
-    glVertexAttribPointer(idx, 3, GL_FLOAT, GL_FALSE, sizeof(GLKVector3), NULL);
+//    GLuint aPosition = (GLuint) glGetAttribLocation(self.program, "aPosition");
+    GLuint aPosition = 0;
+    glVertexAttribPointer(aPosition, 3, GL_FLOAT, GL_FALSE,
+                          6 * sizeof(Float32), (void *)0);
+    glEnableVertexAttribArray(aPosition);
+    
+//    GLuint aColor = (GLuint) glGetAttribLocation(self.program, "aColor");
+    GLuint aColor = 1;
+    glVertexAttribPointer(aColor, 3, GL_FLOAT, GL_FALSE,
+                          6 * sizeof(Float32), (void *)(3 * sizeof(Float32)));
+    glEnableVertexAttribArray(aColor);
+
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glUseProgram(self.program);
 }
 
 - (GLfloat)green {
@@ -81,11 +91,6 @@
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glBindVertexArray(self.vao);
-    glUseProgram(self.program);
-
-    GLint vertexColorLocation = glGetUniformLocation(self.program, "ourColor");
-    glUniform4f(vertexColorLocation, 0.0, self.green, 0.0, 1.0);
-
     glDrawArrays(GL_TRIANGLES, 0, 3);
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
