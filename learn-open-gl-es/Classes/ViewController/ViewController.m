@@ -82,11 +82,11 @@
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glBindVertexArray(self.vao);
+    glUseProgram(self.program);
 
     GLint vertexColorLocation = glGetUniformLocation(self.program, "ourColor");
     glUniform4f(vertexColorLocation, 0.0, self.green, 0.0, 1.0);
 
-    glUseProgram(self.program);
     glDrawArrays(GL_TRIANGLES, 0, 3);
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
