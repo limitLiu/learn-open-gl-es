@@ -75,8 +75,7 @@
 }
 
 - (GLfloat)green {
-    GLfloat seconds = (GLfloat) NSDate.seconds;
-    return (sin(seconds) / 2.0f);
+    return (sin((GLfloat) NSDate.seconds) / 2.0f) + 0.5f;
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
