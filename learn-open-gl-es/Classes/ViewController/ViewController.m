@@ -51,7 +51,7 @@
 #pragma mark gl config
 
 - (void)triangle {
-    Float32 vec[18] = {
+    GLfloat vec[18] = {
         // left
         -0.5f, -0.1f, 0.0f, 0.0f, 1.0f, 0.0f,
         // right
@@ -68,12 +68,12 @@
     glBufferData(GL_ARRAY_BUFFER, sizeof(vec), vec, GL_STATIC_DRAW);
     GLuint aPosition = 0;
     glVertexAttribPointer(aPosition, 3, GL_FLOAT, GL_FALSE,
-                          6 * sizeof(Float32), (void *)0);
+                          6 * sizeof(GLfloat), (void *)0);
     glEnableVertexAttribArray(aPosition);
     
     GLuint aColor = 1;
     glVertexAttribPointer(aColor, 3, GL_FLOAT, GL_FALSE,
-                          6 * sizeof(Float32), (void *)(3 * sizeof(Float32)));
+                          6 * sizeof(GLfloat), (void *)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(aColor);
 
     glBindVertexArray(0);
