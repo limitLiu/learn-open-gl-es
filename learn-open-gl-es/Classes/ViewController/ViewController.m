@@ -13,11 +13,12 @@
 
 @interface ViewController () <GLKViewDelegate>
 
-@property(nonatomic, strong) ShaderProcessor *processor;
-@property(nonatomic, assign) GLuint vao;
-@property(nonatomic, assign) GLuint vbo;
-@property(nonatomic, assign) GLuint ebo;
-@property(nonatomic, assign) GLuint texture;
+@property (nonatomic, strong) ShaderProcessor *processor;
+@property (nonatomic, assign) GLuint vao;
+@property (nonatomic, assign) GLuint vbo;
+@property (nonatomic, assign) GLuint ebo;
+@property (nonatomic, assign) GLuint texture1;
+@property (nonatomic, assign) GLuint texture2;
 
 @end
 
@@ -93,17 +94,20 @@
         8 * sizeof(GLfloat), (void *) (6 * sizeof(GLfloat)));
     glEnableVertexAttribArray(aTexCoord);
 
-
     NSString *bundle = [[NSBundle mainBundle] pathForResource:@"textures" ofType:@"bundle"];
-    UIImage *img = [UIImage imageWithContentsOfFile:
+    UIImage *img1 = [UIImage imageWithContentsOfFile:
         [bundle stringByAppendingPathComponent:@"container.jpg"]];
-    [self createTexture:img];
+    UIImage *img2 = [UIImage imageWithContentsOfFile:
+                    [bundle stringByAppendingPathComponent:@"awesomeface.png"]];
+    [self createTexture:&_texture1 image:img1];
+    [self createTexture:&_texture2 image:img2];
 
-    glBindVertexArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    [self.processor useProgram];
+    [self.processor setInt:"texture1" value:(GL_TEXTURE0 - GL_TEXTURE0)];
+    [self.processor setInt:"texture2" value:(GL_TEXTURE1 - GL_TEXTURE0)];
 }
 
-- (void)createTexture:(UIImage *)image {
+- (void)createTexture:(GLuint *)tex image:(UIImage *)image {
     CGImageRef cgImgRef = image.CGImage;
     size_t width = CGImageGetWidth(cgImgRef);
     size_t height = CGImageGetHeight(cgImgRef);
@@ -121,9 +125,8 @@
     CGContextClearRect(context, rect);
     CGContextDrawImage(context, rect, cgImgRef);
 
-    _texture = 0;
-    glGenTextures(1, &_texture);
-    glBindTexture(GL_TEXTURE_2D, _texture);
+    glGenTextures(1, tex);
+    glBindTexture(GL_TEXTURE_2D, *tex);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -137,7 +140,13 @@
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     glClearColor(0.2, 0.3, 0.3, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
-    glBindTexture(GL_TEXTURE_2D, _texture);
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _texture1);
+    
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, _texture2);
+    
     [self.processor useProgram];
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *) 0);

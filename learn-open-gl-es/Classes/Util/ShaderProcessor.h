@@ -15,7 +15,8 @@
 
 - (instancetype)initWithFile:(NSString *)fileName;
 
-- (void)setFloat:(NSString *)name value:(GLfloat)x;
+- (void)setFloat:(GLchar *)name value:(GLfloat)x;
+- (void)setInt:(GLchar *)name value:(GLint)x;
 
 - (void)useProgram;
 

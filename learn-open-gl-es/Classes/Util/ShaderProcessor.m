@@ -43,13 +43,18 @@
 
 #pragma mark out interface
 
-- (void)setFloat:(NSString *)name value:(GLfloat)x {
-    GLint location = glGetUniformLocation(self.program, (GLchar *)name.UTF8String);
+- (void)setFloat:(GLchar *)name value:(GLfloat)x {
+    GLint location = glGetUniformLocation(self.program, name);
     glUniform1f(location, x);
 }
 
+- (void)setInt:(GLchar *)name value:(GLint)x {
+    GLint location = glGetUniformLocation(self.program, name);
+    glUniform1i(location, x);
+}
+
 - (void)useProgram {
-    glUseProgram(self.program);
+    glUseProgram(_program);
 }
 
 
