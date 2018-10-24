@@ -47,7 +47,7 @@
 #pragma mark create program
 
 - (void)createProgram {
-     self.processor = [[ShaderProcessor alloc] initWithFile:@"shader"];
+    self.processor = [[ShaderProcessor alloc] initWithFile:@"shader"];
 }
 
 #pragma mark gl config
@@ -63,41 +63,41 @@
         // left top
         -0.8f, 0.4f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f
     };
-    
+
     GLuint indices[6] = {
         0, 1, 3, 1, 2, 3
     };
-    
+
     glGenVertexArrays(1, &_vao);
     glBindVertexArray(_vao);
     glGenBuffers(1, &_vbo);
     glGenBuffers(1, &_ebo);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vec), vec, GL_STATIC_DRAW);
-    
+
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
     GLuint aPosition = 0;
     glVertexAttribPointer(aPosition, 3, GL_FLOAT, GL_FALSE,
-                          8 * sizeof(GLfloat), (void *)0);
+        8 * sizeof(GLfloat), (void *) 0);
     glEnableVertexAttribArray(aPosition);
-    
+
     GLuint aColor = 1;
     glVertexAttribPointer(aColor, 3, GL_FLOAT, GL_FALSE,
-                          8 * sizeof(GLfloat), (void *)(3 * sizeof(GLfloat)));
+        8 * sizeof(GLfloat), (void *) (3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(aColor);
-    
+
     GLuint aTexCoord = 2;
     glVertexAttribPointer(aTexCoord, 2, GL_FLOAT, GL_FALSE,
-                          8 * sizeof(GLfloat), (void *)(6 * sizeof(GLfloat)));
+        8 * sizeof(GLfloat), (void *) (6 * sizeof(GLfloat)));
     glEnableVertexAttribArray(aTexCoord);
-    
-    
+
+
     NSString *bundle = [[NSBundle mainBundle] pathForResource:@"textures" ofType:@"bundle"];
     UIImage *img = [UIImage imageWithContentsOfFile:
-                    [bundle stringByAppendingPathComponent:@"container.jpg"]];
+        [bundle stringByAppendingPathComponent:@"container.jpg"]];
     [self createTexture:img];
 
     glBindVertexArray(0);
@@ -106,16 +106,16 @@
 
 - (void)createTexture:(UIImage *)image {
     CGImageRef cgImgRef = image.CGImage;
-    GLsizei width = (GLsizei)CGImageGetWidth(cgImgRef);
-    GLsizei height = (GLsizei)CGImageGetHeight(cgImgRef);
+    size_t width = CGImageGetWidth(cgImgRef);
+    size_t height = CGImageGetHeight(cgImgRef);
     void *data = malloc(width * height * 4);
-    CGRect rect = { 0, 0, width, height };
-    
+    CGRect rect = {0, 0, width, height};
+
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef context = CGBitmapContextCreate(data, width, height, 8,
-                                                 width * 4,
-                                                 colorSpace,
-                                                 kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+        width * 4,
+        colorSpace,
+        kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
     CGContextTranslateCTM(context, 0, height);
     CGContextScaleCTM(context, 1.0f, -1.0f);
     CGColorSpaceRelease(colorSpace);
@@ -129,9 +129,9 @@
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei) width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
-    
+
     free(data);
 }
 
@@ -141,7 +141,7 @@
     glBindTexture(GL_TEXTURE_2D, _texture);
     [self.processor useProgram];
     glBindVertexArray(_vao);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *)0);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *) 0);
 }
 
 - (void)dealloc {
