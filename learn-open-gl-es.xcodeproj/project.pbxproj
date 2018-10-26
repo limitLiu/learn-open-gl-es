@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17319661217CBD2600E22FCE /* textures.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17319660217CBD2500E22FCE /* textures.bundle */; };
+		1755D0DD21838EF000A4BEEF /* Dynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755D0DC21838EF000A4BEEF /* Dynamic.m */; };
 		17D11B4D216E573E006D4361 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B47216E573E006D4361 /* ViewController.m */; };
 		17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B4A216E573E006D4361 /* AppDelegate.m */; };
 		17D11B52216E589A006D4361 /* shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B51216E589A006D4361 /* shader.frag */; };
@@ -24,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		17319660217CBD2500E22FCE /* textures.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = textures.bundle; sourceTree = "<group>"; };
+		1755D0DB21838EF000A4BEEF /* Dynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dynamic.h; sourceTree = "<group>"; };
+		1755D0DC21838EF000A4BEEF /* Dynamic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dynamic.m; sourceTree = "<group>"; };
 		17D11B47216E573E006D4361 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		17D11B48216E573E006D4361 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		17D11B4A216E573E006D4361 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				17D11B57216E59E1006D4361 /* ShaderProcessor.m */,
 				456B723C50DD49F6FBD17D76 /* NSDate+func.m */,
 				456B79B5ABD97C990017773D /* NSDate+func.h */,
+				1755D0DB21838EF000A4BEEF /* Dynamic.h */,
+				1755D0DC21838EF000A4BEEF /* Dynamic.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */,
 				17D11B58216E59E1006D4361 /* ShaderProcessor.m in Sources */,
 				456B7870A5884C3791C60A0A /* NSDate+func.m in Sources */,
+				1755D0DD21838EF000A4BEEF /* Dynamic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +373,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G83A8HGB49;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = "learn-open-gl-es/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -386,6 +393,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G83A8HGB49;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = "learn-open-gl-es/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = (

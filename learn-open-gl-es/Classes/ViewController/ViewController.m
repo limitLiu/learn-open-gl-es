@@ -20,6 +20,8 @@
 @property (nonatomic, assign) GLuint texture1;
 @property (nonatomic, assign) GLuint texture2;
 
+@property (nonatomic, assign) GLfloat mixVal;
+
 @end
 
 @implementation ViewController
@@ -55,13 +57,13 @@
 - (void)triangle {
     GLfloat vec[32] = {
         // right top             color             texture
-        0.8f, 0.4f, 0.0f, 1.0f, 0.0f, 0.0f, 0.55f, 0.55f,
+        0.8f, 0.4f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
         // right bottom
-        0.8f, -0.4f, 0.0f, 0.0f, 1.0f, 0.0f, 0.55f, 0.45f,
+        0.8f, -0.4f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
         // left bottom
-        -0.8f, -0.4f, 0.0f, 0.0f, 0.0f, 1.0f, 0.45f, 0.45f,
+        -0.8f, -0.4f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
         // left top
-        -0.8f, 0.4f, 0.0f, 1.0f, 1.0f, 0.0f, 0.45f, 0.55f
+        -0.8f, 0.4f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f
     };
 
     GLuint indices[6] = {
@@ -149,9 +151,24 @@
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, _texture2);
     
+    [self.processor setFloat:"mixVal" value:_mixVal];
+    
     [self.processor useProgram];
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *) 0);
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches objectEnumerator].nextObject;
+    CGPoint prevLoc = [touch previousLocationInView:self.view];
+    CGPoint loc = [touch locationInView:self.view];
+    if ((loc.x - prevLoc.x) > 0 || (loc.y - prevLoc.y) > 0) {
+        self.mixVal += 0.1f;
+//        if (self.mixVal >= 1.0f) self.mixVal = 1.0;
+    } else {
+        self.mixVal -= 0.1f;
+//        if (self.mixVal <= 0.0f) self.mixVal = 0.0;
+    }
 }
 
 - (void)dealloc {
