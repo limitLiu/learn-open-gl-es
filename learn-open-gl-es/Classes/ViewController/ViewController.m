@@ -55,13 +55,13 @@
 - (void)triangle {
     GLfloat vec[32] = {
         // right top             color             texture
-        0.8f, 0.4f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+        0.8f, 0.4f, 0.0f, 1.0f, 0.0f, 0.0f, 2.0f, 2.0f,
         // right bottom
-        0.8f, -0.4f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+        0.8f, -0.4f, 0.0f, 0.0f, 1.0f, 0.0f, 2.0f, 0.0f,
         // left bottom
         -0.8f, -0.4f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
         // left top
-        -0.8f, 0.4f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f
+        -0.8f, 0.4f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 2.0f
     };
 
     GLuint indices[6] = {
@@ -100,7 +100,11 @@
     UIImage *img2 = [UIImage imageWithContentsOfFile:
                     [bundle stringByAppendingPathComponent:@"awesomeface.png"]];
     [self createTexture:&_texture1 image:img1];
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     [self createTexture:&_texture2 image:img2];
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
     [self.processor useProgram];
     [self.processor setInt:"texture1" value:(GL_TEXTURE0 - GL_TEXTURE0)];
@@ -127,8 +131,6 @@
 
     glGenTextures(1, tex);
     glBindTexture(GL_TEXTURE_2D, *tex);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei) width, (GLsizei) height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
