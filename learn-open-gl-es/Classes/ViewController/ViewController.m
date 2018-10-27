@@ -162,11 +162,11 @@
     UITouch *touch = [touches objectEnumerator].nextObject;
     CGPoint prevLoc = [touch previousLocationInView:self.view];
     CGPoint loc = [touch locationInView:self.view];
-    if ((loc.x - prevLoc.x) > 0 || (loc.y - prevLoc.y) > 0) {
-        self.mixVal += 0.1f;
+    if ((loc.y - prevLoc.y) > 0) {
+        self.mixVal += 0.01f;
 //        if (self.mixVal >= 1.0f) self.mixVal = 1.0;
     } else {
-        self.mixVal -= 0.1f;
+        self.mixVal -= 0.01f;
 //        if (self.mixVal <= 0.0f) self.mixVal = 0.0;
     }
 }
