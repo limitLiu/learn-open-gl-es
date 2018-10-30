@@ -13,14 +13,14 @@
 
 @interface ViewController () <GLKViewDelegate>
 
-@property (nonatomic, strong) ShaderProcessor *processor;
-@property (nonatomic, assign) GLuint vao;
-@property (nonatomic, assign) GLuint vbo;
-@property (nonatomic, assign) GLuint ebo;
-@property (nonatomic, assign) GLuint texture1;
-@property (nonatomic, assign) GLuint texture2;
+@property(nonatomic, strong) ShaderProcessor *processor;
+@property(nonatomic, assign) GLuint vao;
+@property(nonatomic, assign) GLuint vbo;
+@property(nonatomic, assign) GLuint ebo;
+@property(nonatomic, assign) GLuint texture1;
+@property(nonatomic, assign) GLuint texture2;
 
-@property (nonatomic, assign) GLfloat mixVal;
+@property(nonatomic, assign) GLfloat mixVal;
 
 @end
 
@@ -43,7 +43,7 @@
     view.context = context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     view.drawableColorFormat = GLKViewDrawableColorFormatSRGBA8888;
-    [EAGLContext setCurrentContext:context];
+    EAGLContext.currentContext = context;
 }
 
 #pragma mark create program
@@ -100,7 +100,7 @@
     UIImage *img1 = [UIImage imageWithContentsOfFile:
         [bundle stringByAppendingPathComponent:@"container.jpg"]];
     UIImage *img2 = [UIImage imageWithContentsOfFile:
-                    [bundle stringByAppendingPathComponent:@"awesomeface.png"]];
+        [bundle stringByAppendingPathComponent:@"awesomeface.png"]];
     [self createTexture:&_texture1 image:img1];
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -144,15 +144,15 @@
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     glClearColor(0.2, 0.3, 0.3, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
-    
+
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _texture1);
-    
+
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, _texture2);
-    
+
     [self.processor setFloat:"mixVal" value:_mixVal];
-    
+
     [self.processor useProgram];
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *) 0);
