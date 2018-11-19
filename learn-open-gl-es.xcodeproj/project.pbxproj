@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		17319661217CBD2600E22FCE /* textures.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17319660217CBD2500E22FCE /* textures.bundle */; };
 		1755D0DD21838EF000A4BEEF /* Dynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755D0DC21838EF000A4BEEF /* Dynamic.m */; };
+		177A306D21A313E9004388C0 /* MathClazz.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A306C21A313E9004388C0 /* MathClazz.m */; };
+		177A307021A31414004388C0 /* Matrix4.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A306F21A31414004388C0 /* Matrix4.m */; };
+		177A307321A31F9C004388C0 /* Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A307221A31F9C004388C0 /* Vector.m */; };
 		17D11B4D216E573E006D4361 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B47216E573E006D4361 /* ViewController.m */; };
 		17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B4A216E573E006D4361 /* AppDelegate.m */; };
 		17D11B52216E589A006D4361 /* shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B51216E589A006D4361 /* shader.frag */; };
@@ -27,6 +30,12 @@
 		17319660217CBD2500E22FCE /* textures.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = textures.bundle; sourceTree = "<group>"; };
 		1755D0DB21838EF000A4BEEF /* Dynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dynamic.h; sourceTree = "<group>"; };
 		1755D0DC21838EF000A4BEEF /* Dynamic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dynamic.m; sourceTree = "<group>"; };
+		177A306B21A313E9004388C0 /* MathClazz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathClazz.h; sourceTree = "<group>"; };
+		177A306C21A313E9004388C0 /* MathClazz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathClazz.m; sourceTree = "<group>"; };
+		177A306E21A31414004388C0 /* Matrix4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
+		177A306F21A31414004388C0 /* Matrix4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Matrix4.m; sourceTree = "<group>"; };
+		177A307121A31F9C004388C0 /* Vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		177A307221A31F9C004388C0 /* Vector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Vector.m; sourceTree = "<group>"; };
 		17D11B47216E573E006D4361 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		17D11B48216E573E006D4361 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		17D11B4A216E573E006D4361 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +69,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		177A306A21A313E9004388C0 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				177A306B21A313E9004388C0 /* MathClazz.h */,
+				177A306C21A313E9004388C0 /* MathClazz.m */,
+				177A306E21A31414004388C0 /* Matrix4.h */,
+				177A306F21A31414004388C0 /* Matrix4.m */,
+				177A307121A31F9C004388C0 /* Vector.h */,
+				177A307221A31F9C004388C0 /* Vector.m */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
 		17D11B45216E573E006D4361 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +128,7 @@
 		17D11B55216E598B006D4361 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				177A306A21A313E9004388C0 /* Math */,
 				17D11B56216E59E1006D4361 /* ShaderProcessor.h */,
 				17D11B57216E59E1006D4361 /* ShaderProcessor.m */,
 				456B723C50DD49F6FBD17D76 /* NSDate+func.m */,
@@ -177,6 +200,7 @@
 		BB8F082E216A66C70036726C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = limit;
 				TargetAttributes = {
@@ -226,8 +250,11 @@
 			files = (
 				17D11B4D216E573E006D4361 /* ViewController.m in Sources */,
 				BB8F0849216A66C90036726C /* main.m in Sources */,
+				177A307321A31F9C004388C0 /* Vector.m in Sources */,
+				177A306D21A313E9004388C0 /* MathClazz.m in Sources */,
 				17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */,
 				17D11B58216E59E1006D4361 /* ShaderProcessor.m in Sources */,
+				177A307021A31414004388C0 /* Matrix4.m in Sources */,
 				456B7870A5884C3791C60A0A /* NSDate+func.m in Sources */,
 				1755D0DD21838EF000A4BEEF /* Dynamic.m in Sources */,
 			);
@@ -375,7 +402,7 @@
 				DEVELOPMENT_TEAM = G83A8HGB49;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = "learn-open-gl-es/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -395,7 +422,7 @@
 				DEVELOPMENT_TEAM = G83A8HGB49;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = "learn-open-gl-es/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
