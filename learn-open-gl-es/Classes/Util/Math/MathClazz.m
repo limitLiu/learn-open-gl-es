@@ -19,4 +19,8 @@
     return GLKMathDegreesToRadians(degrees);
 }
 
++ (GLKVector3)vec3_x:(float)x y:(float)y z:(float)z {
+    return GLKVector3Make(x, y, z);
+}
+
 @end
