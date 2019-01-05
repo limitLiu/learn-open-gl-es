@@ -57,6 +57,11 @@
     glUseProgram(_program);
 }
 
+- (void)setMat4:(GLchar *)name value:(GLKMatrix4)mat {
+    GLint location = glGetUniformLocation(self.program, name);
+    glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat *)mat.m);
+}
+
 
 #pragma mark - shader
 #pragma mark compile shader

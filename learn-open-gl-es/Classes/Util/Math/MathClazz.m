@@ -23,4 +23,8 @@
     return GLKVector3Make(x, y, z);
 }
 
++ (Matrix4 *)angle_x:(float)degrees {
+    return [Matrix4 new];
+}
+
 @end

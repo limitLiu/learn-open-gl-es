@@ -19,4 +19,9 @@
 
 - (GLKMatrix4)rotate:(float)radians vector3:(GLKVector3)vector3;
 
++ (GLKMatrix4)rotate:(float)radians x:(float)x y:(float)y z:(float)z;
+
++ (GLKMatrix4)translate:(float)x y:(float)y z:(float)z;
+
++ (GLKMatrix4)perspective:(float)degrees aspect:(float)aspect near:(float)near far:(float)far;
 @end
