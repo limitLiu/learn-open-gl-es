@@ -8,24 +8,22 @@
 
 #import "ViewController.h"
 #import <OpenGLES/ES3/glext.h>
-
 #import "NSDate+func.h"
 #import "ShaderProcessor.h"
-#import "MathClazz.h"
 #import "Matrix4.h"
 
 @interface ViewController () <GLKViewDelegate>
+{
+    GLKVector3 _cubes[10];
+}
 
 @property(nonatomic, strong) ShaderProcessor *processor;
 @property(nonatomic, assign) GLuint vao;
 @property(nonatomic, assign) GLuint vbo;
-@property(nonatomic, assign) GLuint ebo;
 @property(nonatomic, assign) GLuint texture1;
 @property(nonatomic, assign) GLuint texture2;
 
 @property(nonatomic, assign) GLfloat mixVal;
-
-@property(nonatomic, strong) Matrix4 *mat4;
 
 @property(nonatomic, assign) NSInteger screenWidth;
 @property(nonatomic, assign) NSInteger screenHeight;
@@ -48,13 +46,6 @@
     return _screenHeight;
 }
 
-- (Matrix4 *)mat4 {
-    if (!_mat4) {
-        _mat4 = MathClazz.matrix4;
-    }
-    return _mat4;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -73,6 +64,7 @@
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     view.drawableColorFormat = GLKViewDrawableColorFormatSRGBA8888;
     EAGLContext.currentContext = context;
+    glEnable(GL_DEPTH_TEST);
 }
 
 #pragma mark create program
@@ -84,32 +76,72 @@
 #pragma mark gl config
 
 - (void)triangle {
-    GLfloat vec[20] = {
-        // right top             texture
-        0.8f, 0.4f, 0.0f, 1.0f, 1.0f,
-        // right bottom
-        0.8f, -0.4f, 0.0f, 1.0f, 0.0f,
-        // left bottom
-        -0.8f, -0.4f, 0.0f, 0.0f, 0.0f,
-        // left top
-        -0.8f, 0.4f, 0.0f, 0.0f, 1.0f
+    GLfloat vec[180] = {
+        //
+        -0.3, -0.3, -0.3, 0.0, 0.0,
+        0.3, -0.3, -0.3, 1.0, 0.0,
+        0.3, 0.3, -0.3, 1.0, 1.0,
+        0.3, 0.3, -0.3, 1.0, 1.0,
+        -0.3, 0.3, -0.3, 0.0, 1.0,
+        -0.3, -0.3, -0.3, 0.0, 0.0,
+        //
+        -0.3, -0.3, 0.3, 0.0, 0.0,
+        0.3, -0.3, 0.3, 1.0, 0.0,
+        0.3, 0.3, 0.3, 1.0, 1.0,
+        0.3, 0.3, 0.3, 1.0, 1.0,
+        -0.3, 0.3, 0.3, 0.0, 1.0,
+        -0.3, -0.3, 0.3, 0.0, 0.0,
+        //
+        -0.3, 0.3, 0.3, 1.0, 0.0,
+        -0.3, 0.3, -0.3, 1.0, 1.0,
+        -0.3, -0.3, -0.3, 0.0, 1.0,
+        -0.3, -0.3, -0.3, 0.0, 1.0,
+        -0.3, -0.3, 0.3, 0.0, 0.0,
+        -0.3, 0.3, 0.3, 1.0, 0.0,
+        //
+        0.3, 0.3, 0.3, 1.0, 0.0,
+        0.3, 0.3, -0.3, 1.0, 1.0,
+        0.3, -0.3, -0.3, 0.0, 1.0,
+        0.3, -0.3, -0.3, 0.0, 1.0,
+        0.3, -0.3, 0.3, 0.0, 0.0,
+        0.3, 0.3, 0.3, 1.0, 0.0,
+        //
+        -0.3, -0.3, -0.3, 0.0, 1.0,
+        0.3, -0.3, -0.3, 1.0, 1.0,
+        0.3, -0.3, 0.3, 1.0, 0.0,
+        0.3, -0.3, 0.3, 1.0, 0.0,
+        -0.3, -0.3, 0.3, 0.0, 0.0,
+        -0.3, -0.3, -0.3, 0.0, 1.0,
+        //
+        -0.3, 0.3, -0.3, 0.0, 1.0,
+        0.3, 0.3, -0.3, 1.0, 1.0,
+        0.3, 0.3, 0.3, 1.0, 0.0,
+        0.3, 0.3, 0.3, 1.0, 0.0,
+        -0.3, 0.3, 0.3, 0.0, 0.0,
+        -0.3, 0.3, -0.3, 0.0, 1.0
     };
     
-    GLuint indices[6] = {
-        0, 1, 3, 1, 2, 3
+    GLKVector3 cubes[] = {
+        GLKVector3Make(0.0f, 0.0f, 0.0f),
+        GLKVector3Make(2.0f, 5.0f, -15.0f),
+        GLKVector3Make(-1.5f, -2.2f, -2.5f),
+        GLKVector3Make(-3.8f, -2.0f, -12.3f),
+        GLKVector3Make(2.4f, -0.4f, -3.5f),
+        GLKVector3Make(-1.7f, 3.0f, -7.5f),
+        GLKVector3Make(1.3f, -2.0f, -2.5f),
+        GLKVector3Make(1.5f, 2.0f, -2.5f),
+        GLKVector3Make(1.5f, 0.2f, -1.5f),
+        GLKVector3Make(-1.3f, 1.0f, -1.5f)
     };
-    
+    self.cubes = cubes;
+
     glGenVertexArrays(1, &_vao);
     glBindVertexArray(_vao);
     glGenBuffers(1, &_vbo);
-    glGenBuffers(1, &_ebo);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vec), vec, GL_STATIC_DRAW);
-    
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-    
+
     GLuint aPosition = 0;
     glVertexAttribPointer(aPosition, 3, GL_FLOAT, GL_FALSE,
                           5 * sizeof(GLfloat), (void *) 0);
@@ -175,48 +207,59 @@
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, _texture2);
     
-//    GLfloat rotate = NSDate.seconds / 1000.0f;
     [self.processor useProgram];
     
-    GLKMatrix4 modelMatrix = [Matrix4 rotate:-55.0f x:1.0f y:0.0f z:0.0f];
     GLKMatrix4 viewMatrix = [Matrix4 translate:0.0f y:0.0f z:-3.0f];
-    
     float aspect = (float) (self.screenWidth) / (float) (self.screenHeight);
     GLKMatrix4 projectionMatrix = [Matrix4 perspective:45.0f aspect:aspect near:0.1f far:100.0f];
     
-    GLint modelLoc = glGetUniformLocation(self.processor.program, "model");
-    GLint viewLoc = glGetUniformLocation(self.processor.program, "view");
-    
-    glUniformMatrix4fv(modelLoc, 1, GL_FALSE, (GLfloat *) modelMatrix.m);
-    glUniformMatrix4fv(viewLoc, 1, GL_FALSE, (GLfloat *) viewMatrix.m);
-    
+    [self.processor setMat4:"view" value:viewMatrix];
     [self.processor setMat4:"projection" value:projectionMatrix];
     
     glBindVertexArray(_vao);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *) 0);
+    
+    for (int i = 1; i < 11; i++) {
+        GLKVector3 cube = self.cubes[i - 1];
+        GLKMatrix4 m = [Matrix4 translate:cube.v[0] y:cube.v[1] z:cube.v[2]];
+        float angle = (float) NSDate.seconds * i * 0.9f;
+        m = GLKMatrix4RotateWithVector3(m, GLKMathDegreesToRadians(angle), GLKVector3Make(1.0f, 0.3f, 0.3f));
+        [self.processor setMat4:"model" value:m];
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+    }
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches objectEnumerator].nextObject;
     CGPoint prevLoc = [touch previousLocationInView:self.view];
     CGPoint loc = [touch locationInView:self.view];
-    if ((loc.y - prevLoc.y) > 0) {
+    if ((loc.x - prevLoc.x) > 0) {
         self.mixVal += 0.01f;
-        //        if (self.mixVal >= 1.0f) self.mixVal = 1.0;
+//        self.mixVal += 1.0;
     } else {
         self.mixVal -= 0.01f;
-        //        if (self.mixVal <= 0.0f) self.mixVal = 0.0;
+//        self.mixVal -= 1.0;
     }
 }
 
 - (void)dealloc {
     glDeleteVertexArrays(1, &_vao);
     glDeleteBuffers(1, &_vbo);
-    glDeleteBuffers(1, &_ebo);
 }
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+- (void)setCubes:(GLKVector3 *)cubes {
+    if (cubes != NULL) {
+        for (int i = 0; i < 10; i++) {
+            _cubes[i] = cubes[i];
+        }
+    }
+}
+
+- (GLKVector3 *)cubes {
+    return _cubes;
 }
 
 @end

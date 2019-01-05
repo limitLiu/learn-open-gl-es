@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		17319661217CBD2600E22FCE /* textures.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17319660217CBD2500E22FCE /* textures.bundle */; };
 		1755D0DD21838EF000A4BEEF /* Dynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755D0DC21838EF000A4BEEF /* Dynamic.m */; };
-		177A306D21A313E9004388C0 /* MathClazz.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A306C21A313E9004388C0 /* MathClazz.m */; };
 		177A307021A31414004388C0 /* Matrix4.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A306F21A31414004388C0 /* Matrix4.m */; };
 		17D11B4D216E573E006D4361 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B47216E573E006D4361 /* ViewController.m */; };
 		17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B4A216E573E006D4361 /* AppDelegate.m */; };
@@ -29,8 +28,6 @@
 		17319660217CBD2500E22FCE /* textures.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = textures.bundle; sourceTree = "<group>"; };
 		1755D0DB21838EF000A4BEEF /* Dynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dynamic.h; sourceTree = "<group>"; };
 		1755D0DC21838EF000A4BEEF /* Dynamic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dynamic.m; sourceTree = "<group>"; };
-		177A306B21A313E9004388C0 /* MathClazz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathClazz.h; sourceTree = "<group>"; };
-		177A306C21A313E9004388C0 /* MathClazz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathClazz.m; sourceTree = "<group>"; };
 		177A306E21A31414004388C0 /* Matrix4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
 		177A306F21A31414004388C0 /* Matrix4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Matrix4.m; sourceTree = "<group>"; };
 		17D11B47216E573E006D4361 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -69,8 +66,6 @@
 		177A306A21A313E9004388C0 /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				177A306B21A313E9004388C0 /* MathClazz.h */,
-				177A306C21A313E9004388C0 /* MathClazz.m */,
 				177A306E21A31414004388C0 /* Matrix4.h */,
 				177A306F21A31414004388C0 /* Matrix4.m */,
 			);
@@ -245,7 +240,6 @@
 			files = (
 				17D11B4D216E573E006D4361 /* ViewController.m in Sources */,
 				BB8F0849216A66C90036726C /* main.m in Sources */,
-				177A306D21A313E9004388C0 /* MathClazz.m in Sources */,
 				17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */,
 				17D11B58216E59E1006D4361 /* ShaderProcessor.m in Sources */,
 				177A307021A31414004388C0 /* Matrix4.m in Sources */,
