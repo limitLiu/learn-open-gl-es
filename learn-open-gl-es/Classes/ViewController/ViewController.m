@@ -12,9 +12,11 @@
 #import "ShaderProcessor.h"
 #import "Matrix4.h"
 
+#import <math.h>
+
 @interface ViewController () <GLKViewDelegate>
 {
-    GLKVector3 _cubes[10];
+    @private GLKVector3 _cubes[10];
 }
 
 @property(nonatomic, strong) ShaderProcessor *processor;
@@ -167,6 +169,10 @@
     [self.processor useProgram];
     [self.processor setInt:"texture1" value:(GL_TEXTURE0 - GL_TEXTURE0)];
     [self.processor setInt:"texture2" value:(GL_TEXTURE1 - GL_TEXTURE0)];
+    
+    float aspect = (float) (self.screenWidth) / (float) (self.screenHeight);
+    GLKMatrix4 projectionMatrix = [Matrix4 perspective:45.0f aspect:aspect near:0.1f far:100.0f];
+    [self.processor setMat4:"projection" value:projectionMatrix];
 }
 
 - (void)createTexture:(GLuint *)tex image:(UIImage *)image {
@@ -209,19 +215,23 @@
     
     [self.processor useProgram];
     
-    GLKMatrix4 viewMatrix = [Matrix4 translate:0.0f y:0.0f z:-3.0f];
-    float aspect = (float) (self.screenWidth) / (float) (self.screenHeight);
-    GLKMatrix4 projectionMatrix = [Matrix4 perspective:45.0f aspect:aspect near:0.1f far:100.0f];
-    
+    float radius = 10.f;
+    float camX = sin(NSDate.seconds / 20.f) * radius;
+    float camZ = cos(NSDate.seconds / 20.f) * radius;
+
+    float eye[3] = { camX, 0.0f, camZ };
+    float center[3] = { 0.0f, 0.0f, 0.0f };
+    float up[3] = { 0.0f, 1.0f, 0.0f };
+    GLKMatrix4 viewMatrix = [Matrix4 lookAt:eye center:center up:up];
+
     [self.processor setMat4:"view" value:viewMatrix];
-    [self.processor setMat4:"projection" value:projectionMatrix];
-    
+
     glBindVertexArray(_vao);
     
     for (int i = 1; i < 11; i++) {
         GLKVector3 cube = self.cubes[i - 1];
         GLKMatrix4 m = [Matrix4 translate:cube.v[0] y:cube.v[1] z:cube.v[2]];
-        float angle = (float) NSDate.seconds * i * 0.9f;
+        float angle = 20.0f * i;
         m = GLKMatrix4RotateWithVector3(m, GLKMathDegreesToRadians(angle), GLKVector3Make(1.0f, 0.3f, 0.3f));
         [self.processor setMat4:"model" value:m];
         glDrawArrays(GL_TRIANGLES, 0, 36);

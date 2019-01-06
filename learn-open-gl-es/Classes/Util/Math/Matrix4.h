@@ -16,4 +16,6 @@
 + (GLKMatrix4)translate:(float)x y:(float)y z:(float)z;
 
 + (GLKMatrix4)perspective:(float)degrees aspect:(float)aspect near:(float)near far:(float)far;
+
++ (GLKMatrix4)lookAt:(float *)eye center:(float *)center up:(float *)up;
 @end
