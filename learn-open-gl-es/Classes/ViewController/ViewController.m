@@ -11,7 +11,6 @@
 
 #import "NSDate+func.h"
 #import "ShaderProcessor.h"
-#import "MathClazz.h"
 #import "Matrix4.h"
 
 @interface ViewController () <GLKViewDelegate>
@@ -25,19 +24,11 @@
 
 @property(nonatomic, assign) GLfloat mixVal;
 
-@property(nonatomic, strong) Matrix4 *mat4;
-
+@property(nonatomic, assign) GLKMatrix4 mat4;
 
 @end
 
 @implementation ViewController
-
-- (Matrix4 *)mat4 {
-    if (!_mat4) {
-        _mat4 = MathClazz.matrix4;
-    }
-    return _mat4;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -124,8 +115,9 @@
     [self.processor useProgram];
     [self.processor setInt:"texture1" value:(GL_TEXTURE0 - GL_TEXTURE0)];
     [self.processor setInt:"texture2" value:(GL_TEXTURE1 - GL_TEXTURE0)];
-
-    self.mat4.identity = [self.mat4 translate:[MathClazz vec3_x:0.2f y:-0.2f z:0.0f]];
+    
+    self.mat4 = GLKMatrix4Identity;
+    self.mat4 = [Matrix4 translate:_mat4 x:0.2f y:-0.2f z:0.0f];
 }
 
 - (void)createTexture:(GLuint *)tex image:(UIImage *)image {
@@ -166,16 +158,12 @@
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, _texture2);
 
-    GLfloat rotate = NSDate.seconds / 1000.0f;
-    self.mat4.identity = [self.mat4 rotate:rotate
-                                   vector3:[MathClazz vec3_x:0.0f y:0.0f z:1.0f]];
+    GLfloat rotate = NSDate.seconds / 100.0f;
 
     [self.processor setFloat:"mixVal" value:_mixVal];
     [self.processor useProgram];
-
-    GLKMatrix4 matrix4 = self.mat4.identity;
-    GLint location = glGetUniformLocation(self.processor.program, "transform");
-    glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat *) &matrix4.m);
+    self.mat4 = [Matrix4 rotate:_mat4 radians:rotate x:0.0f y:0.0f z:1.0f];
+    [self.processor setMat4:"transform" value:_mat4];
 
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *) 0);

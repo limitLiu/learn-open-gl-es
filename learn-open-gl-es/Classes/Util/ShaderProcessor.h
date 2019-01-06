@@ -17,6 +17,7 @@
 
 - (void)setFloat:(GLchar *)name value:(GLfloat)x;
 - (void)setInt:(GLchar *)name value:(GLint)x;
+- (void)setMat4:(GLchar *)name value:(GLKMatrix4)x;
 
 - (void)useProgram;
 

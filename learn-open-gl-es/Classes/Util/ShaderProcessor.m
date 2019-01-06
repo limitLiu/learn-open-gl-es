@@ -53,6 +53,11 @@
     glUniform1i(location, x);
 }
 
+- (void)setMat4:(GLchar *)name value:(GLKMatrix4)x {
+    GLint location = glGetUniformLocation(self.program, "transform");
+    glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat *) &x.m);
+}
+
 - (void)useProgram {
     glUseProgram(_program);
 }
