@@ -8,3 +8,4 @@ Learn OpenGL ES by [https://learnopengl.com](https://learnopengl.com) on iOS.
 [3. textures](https://github.com/limitLiu/learn-open-gl-es/tree/textures)  
 [4. transformations](https://github.com/limitLiu/learn-open-gl-es/tree/transformations)  
 [5. coordinate systems](https://github.com/limitLiu/learn-open-gl-es/tree/coordinate_systems)  
+[6. camera](https://github.com/limitLiu/learn-open-gl-es/tree/camera)  
