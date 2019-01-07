@@ -15,6 +15,7 @@
 		17D11B52216E589A006D4361 /* shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B51216E589A006D4361 /* shader.frag */; };
 		17D11B54216E58A7006D4361 /* shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B53216E58A7006D4361 /* shader.vert */; };
 		17D11B58216E59E1006D4361 /* ShaderProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B57216E59E1006D4361 /* ShaderProcessor.m */; };
+		456B7780E1A44BE285D9CC60 /* Vector3.m in Sources */ = {isa = PBXBuildFile; fileRef = 456B7539F33A5F163CDA6FE5 /* Vector3.m */; };
 		456B7870A5884C3791C60A0A /* NSDate+func.m in Sources */ = {isa = PBXBuildFile; fileRef = 456B723C50DD49F6FBD17D76 /* NSDate+func.m */; };
 		BB74F3F1216DD0100016BFEB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB74F3F0216DD0100016BFEB /* OpenGLES.framework */; };
 		BB74F3F3216DD01A0016BFEB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB74F3F2216DD01A0016BFEB /* GLKit.framework */; };
@@ -39,6 +40,8 @@
 		17D11B56216E59E1006D4361 /* ShaderProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderProcessor.h; sourceTree = "<group>"; };
 		17D11B57216E59E1006D4361 /* ShaderProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShaderProcessor.m; sourceTree = "<group>"; };
 		456B723C50DD49F6FBD17D76 /* NSDate+func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+func.m"; sourceTree = "<group>"; };
+		456B7539F33A5F163CDA6FE5 /* Vector3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vector3.m; sourceTree = "<group>"; };
+		456B7830E6855BBCB7DD9525 /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
 		456B79B5ABD97C990017773D /* NSDate+func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+func.h"; sourceTree = "<group>"; };
 		BB74F3F0216DD0100016BFEB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB74F3F2216DD01A0016BFEB /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -68,6 +71,8 @@
 			children = (
 				177A306E21A31414004388C0 /* Matrix4.h */,
 				177A306F21A31414004388C0 /* Matrix4.m */,
+				456B7539F33A5F163CDA6FE5 /* Vector3.m */,
+				456B7830E6855BBCB7DD9525 /* Vector3.h */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				177A307021A31414004388C0 /* Matrix4.m in Sources */,
 				456B7870A5884C3791C60A0A /* NSDate+func.m in Sources */,
 				1755D0DD21838EF000A4BEEF /* Dynamic.m in Sources */,
+				456B7780E1A44BE285D9CC60 /* Vector3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
