@@ -8,13 +8,16 @@
 
 #import "ViewController.h"
 #import <OpenGLES/ES3/glext.h>
-#import "NSDate+func.h"
 #import "ShaderProcessor.h"
 #import "Matrix4.h"
+#import "Vector3.h"
 
 @interface ViewController () <GLKViewDelegate> {
 @private
     GLKVector3 _cubes[10];
+    float _cameraFront[3];
+    float _cameraUp[3];
+    float _pos[3];
 }
 
 @property(nonatomic, strong) ShaderProcessor *processor;
@@ -22,8 +25,6 @@
 @property(nonatomic, assign) GLuint vbo;
 @property(nonatomic, assign) GLuint texture1;
 @property(nonatomic, assign) GLuint texture2;
-
-@property(nonatomic, assign) GLfloat mixVal;
 
 @property(nonatomic, assign) CGFloat screenWidth;
 @property(nonatomic, assign) CGFloat screenHeight;
@@ -213,14 +214,10 @@
 
     [self.processor useProgram];
 
-    float radius = 10.f;
-    float camX = sin(NSDate.seconds / 20.f) * radius;
-    float camZ = cos(NSDate.seconds / 20.f) * radius;
-
-    float eye[3] = {camX, 0.0f, camZ};
-    float center[3] = {0.0f, 0.0f, 0.0f};
-    float up[3] = {0.0f, 1.0f, 0.0f};
-    GLKMatrix4 viewMatrix = [Matrix4 lookAt:eye center:center up:up];
+    float *added = [Vector3 add:self.pos right:self.cameraFront];
+    float *p = self.pos;
+    float *u = self.cameraUp;
+    GLKMatrix4 viewMatrix = [Matrix4 lookAt:p center:added up:u];
 
     [self.processor setMat4:"view" value:viewMatrix];
 
@@ -240,14 +237,21 @@
     UITouch *touch = [touches objectEnumerator].nextObject;
     CGPoint prevLoc = [touch previousLocationInView:self.view];
     CGPoint loc = [touch locationInView:self.view];
-    if ((loc.x - prevLoc.x) > 0) {
-        self.mixVal += 0.01f;
-//        self.mixVal += 1.0;
-    } else {
-        self.mixVal -= 0.01f;
-//        self.mixVal -= 1.0;
-    }
+
+    [self processTouch:loc prevLoc:prevLoc];
 }
+
+- (void)processTouch:(CGPoint)loc prevLoc:(CGPoint)prevLoc {
+    float cameraSpeed = 0.05f;
+
+    if (loc.x > prevLoc.x) {
+        float front[3] = {self.cameraFront[0] * cameraSpeed, self.cameraFront[1] * cameraSpeed, self.cameraFront[2] * cameraSpeed};
+        self.pos = front;
+    } else {
+    }
+
+}
+
 
 - (void)dealloc {
     glDeleteVertexArrays(1, &_vao);
@@ -268,6 +272,44 @@
 
 - (GLKVector3 *)cubes {
     return _cubes;
+}
+
+- (float *)cameraUp {
+    if (NULL == _cameraUp) {
+        float up[3] = {0.0f, 1.0f, 0.0f};
+        for (int i = 0; i < 3; ++i) {
+            _cameraUp[i] = up[i];
+        }
+    }
+    return _cameraUp;
+}
+
+- (float *)cameraFront {
+    if (NULL == _cameraFront) {
+        float front[3] = {0.0f, 0.0f, -1.0f};
+        for (int i = 0; i < 3; ++i) {
+            _cameraFront[i] = front[i];
+        }
+    }
+    return _cameraFront;
+}
+
+- (void)setPos:(float *)pos {
+    if (pos != NULL) {
+        for (int i = 0; i < 3; ++i) {
+            _pos[i] = pos[i];
+        }
+    }
+}
+
+- (float *)pos {
+    if (NULL == _pos) {
+        float pos[3] = {0.0, 0.0, 3.0f};
+        for (int i = 0; i < 3; ++i) {
+            _pos[i] = pos[i];
+        }
+    }
+    return _pos;
 }
 
 @end
