@@ -10,14 +10,10 @@
 #import <OpenGLES/ES3/glext.h>
 #import "ShaderProcessor.h"
 #import "Matrix4.h"
-#import "Vector3.h"
 
 @interface ViewController () <GLKViewDelegate> {
 @private
     GLKVector3 _cubes[10];
-    float _cameraFront[3];
-    float _cameraUp[3];
-    float _pos[3];
 }
 
 @property(nonatomic, strong) ShaderProcessor *processor;
@@ -29,9 +25,27 @@
 @property(nonatomic, assign) CGFloat screenWidth;
 @property(nonatomic, assign) CGFloat screenHeight;
 
+@property(nonatomic, assign) GLKVector3 front;
+@property(nonatomic, assign) GLKVector3 up;
+@property(nonatomic, assign) GLKVector3 pos;
+
 @end
 
 @implementation ViewController
+
+#pragma mark setter/getter
+
+- (void)setCubes:(GLKVector3 *)cubes {
+    if (cubes != NULL) {
+        for (int i = 0; i < 10; i++) {
+            _cubes[i] = cubes[i];
+        }
+    }
+}
+
+- (GLKVector3 *)cubes {
+    return _cubes;
+}
 
 - (CGFloat)screenWidth {
     if (!_screenWidth) {
@@ -51,6 +65,7 @@
     [super viewDidLoad];
 
     [self setupContext];
+    [self configVector];
     [self createProgram];
     [self triangle];
 }
@@ -72,6 +87,17 @@
 
 - (void)createProgram {
     self.processor = [[ShaderProcessor alloc] initWithFile:@"shader"];
+}
+
+#pragma mark config pos front up Vector
+
+- (void)configVector {
+    float pos[3] = {0.0f, 0.0f, 3.0f};
+    self.pos = GLKVector3MakeWithArray(pos);
+    float front[3] = {0.0f, 0.0f, -1.0f};
+    self.front = GLKVector3MakeWithArray(front);
+    float up[3] = {0.0f, 1.0f, 0.0f};
+    self.up = GLKVector3MakeWithArray(up);
 }
 
 #pragma mark gl config
@@ -214,10 +240,8 @@
 
     [self.processor useProgram];
 
-    float *added = [Vector3 add:self.pos right:self.cameraFront];
-    float *p = self.pos;
-    float *u = self.cameraUp;
-    GLKMatrix4 viewMatrix = [Matrix4 lookAt:p center:added up:u];
+    GLKVector3 added = GLKVector3Add(self.pos, self.front);
+    GLKMatrix4 viewMatrix = [Matrix4 lookAt:self.pos center:added up:self.up];
 
     [self.processor setMat4:"view" value:viewMatrix];
 
@@ -234,24 +258,31 @@
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches objectEnumerator].nextObject;
+    UITouch *touch = [touches anyObject];
     CGPoint prevLoc = [touch previousLocationInView:self.view];
     CGPoint loc = [touch locationInView:self.view];
-
     [self processTouch:loc prevLoc:prevLoc];
 }
 
 - (void)processTouch:(CGPoint)loc prevLoc:(CGPoint)prevLoc {
     float cameraSpeed = 0.05f;
 
-    if (loc.x > prevLoc.x) {
-        float front[3] = {self.cameraFront[0] * cameraSpeed, self.cameraFront[1] * cameraSpeed, self.cameraFront[2] * cameraSpeed};
-        self.pos = front;
+    GLKVector3 f = GLKVector3MultiplyScalar(self.front, cameraSpeed);
+    if (loc.y - prevLoc.y > 0) {
+        self.pos = GLKVector3Add(self.pos, f);
     } else {
+        self.pos = GLKVector3Subtract(self.pos, f);
+    }
+
+    GLKVector3 tmp = GLKVector3MultiplyScalar(GLKVector3Normalize(GLKVector3CrossProduct(self.front, self.up)),
+            cameraSpeed);
+    if (loc.x - prevLoc.x > 0) {
+        self.pos = GLKVector3Add(self.pos, tmp);
+    } else {
+        self.pos = GLKVector3Subtract(self.pos, tmp);
     }
 
 }
-
 
 - (void)dealloc {
     glDeleteVertexArrays(1, &_vao);
@@ -260,56 +291,6 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
-}
-
-- (void)setCubes:(GLKVector3 *)cubes {
-    if (cubes != NULL) {
-        for (int i = 0; i < 10; i++) {
-            _cubes[i] = cubes[i];
-        }
-    }
-}
-
-- (GLKVector3 *)cubes {
-    return _cubes;
-}
-
-- (float *)cameraUp {
-    if (NULL == _cameraUp) {
-        float up[3] = {0.0f, 1.0f, 0.0f};
-        for (int i = 0; i < 3; ++i) {
-            _cameraUp[i] = up[i];
-        }
-    }
-    return _cameraUp;
-}
-
-- (float *)cameraFront {
-    if (NULL == _cameraFront) {
-        float front[3] = {0.0f, 0.0f, -1.0f};
-        for (int i = 0; i < 3; ++i) {
-            _cameraFront[i] = front[i];
-        }
-    }
-    return _cameraFront;
-}
-
-- (void)setPos:(float *)pos {
-    if (pos != NULL) {
-        for (int i = 0; i < 3; ++i) {
-            _pos[i] = pos[i];
-        }
-    }
-}
-
-- (float *)pos {
-    if (NULL == _pos) {
-        float pos[3] = {0.0, 0.0, 3.0f};
-        for (int i = 0; i < 3; ++i) {
-            _pos[i] = pos[i];
-        }
-    }
-    return _pos;
 }
 
 @end
