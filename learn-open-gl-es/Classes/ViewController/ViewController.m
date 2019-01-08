@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import <OpenGLES/ES3/glext.h>
-#import "NSDate+func.h"
 #import "ShaderProcessor.h"
 #import "Matrix4.h"
 
@@ -23,14 +22,30 @@
 @property(nonatomic, assign) GLuint texture1;
 @property(nonatomic, assign) GLuint texture2;
 
-@property(nonatomic, assign) GLfloat mixVal;
-
 @property(nonatomic, assign) CGFloat screenWidth;
 @property(nonatomic, assign) CGFloat screenHeight;
+
+@property(nonatomic, assign) GLKVector3 front;
+@property(nonatomic, assign) GLKVector3 up;
+@property(nonatomic, assign) GLKVector3 pos;
 
 @end
 
 @implementation ViewController
+
+#pragma mark setter/getter
+
+- (void)setCubes:(GLKVector3 *)cubes {
+    if (cubes != NULL) {
+        for (int i = 0; i < 10; i++) {
+            _cubes[i] = cubes[i];
+        }
+    }
+}
+
+- (GLKVector3 *)cubes {
+    return _cubes;
+}
 
 - (CGFloat)screenWidth {
     if (!_screenWidth) {
@@ -50,6 +65,7 @@
     [super viewDidLoad];
 
     [self setupContext];
+    [self configVector];
     [self createProgram];
     [self triangle];
 }
@@ -71,6 +87,17 @@
 
 - (void)createProgram {
     self.processor = [[ShaderProcessor alloc] initWithFile:@"shader"];
+}
+
+#pragma mark config pos front up Vector
+
+- (void)configVector {
+    float pos[3] = {0.0f, 0.0f, 3.0f};
+    self.pos = GLKVector3MakeWithArray(pos);
+    float front[3] = {0.0f, 0.0f, -1.0f};
+    self.front = GLKVector3MakeWithArray(front);
+    float up[3] = {0.0f, 1.0f, 0.0f};
+    self.up = GLKVector3MakeWithArray(up);
 }
 
 #pragma mark gl config
@@ -213,14 +240,8 @@
 
     [self.processor useProgram];
 
-    float radius = 10.f;
-    float camX = sin(NSDate.seconds / 20.f) * radius;
-    float camZ = cos(NSDate.seconds / 20.f) * radius;
-
-    float eye[3] = {camX, 0.0f, camZ};
-    float center[3] = {0.0f, 0.0f, 0.0f};
-    float up[3] = {0.0f, 1.0f, 0.0f};
-    GLKMatrix4 viewMatrix = [Matrix4 lookAt:eye center:center up:up];
+    GLKVector3 added = GLKVector3Add(self.pos, self.front);
+    GLKMatrix4 viewMatrix = [Matrix4 lookAt:self.pos center:added up:self.up];
 
     [self.processor setMat4:"view" value:viewMatrix];
 
@@ -237,16 +258,30 @@
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches objectEnumerator].nextObject;
+    UITouch *touch = [touches anyObject];
     CGPoint prevLoc = [touch previousLocationInView:self.view];
     CGPoint loc = [touch locationInView:self.view];
-    if ((loc.x - prevLoc.x) > 0) {
-        self.mixVal += 0.01f;
-//        self.mixVal += 1.0;
+    [self processTouch:loc prevLoc:prevLoc];
+}
+
+- (void)processTouch:(CGPoint)loc prevLoc:(CGPoint)prevLoc {
+    float cameraSpeed = 0.05f;
+
+    GLKVector3 f = GLKVector3MultiplyScalar(self.front, cameraSpeed);
+    if (loc.y - prevLoc.y > 0) {
+        self.pos = GLKVector3Add(self.pos, f);
     } else {
-        self.mixVal -= 0.01f;
-//        self.mixVal -= 1.0;
+        self.pos = GLKVector3Subtract(self.pos, f);
     }
+
+    GLKVector3 tmp = GLKVector3MultiplyScalar(GLKVector3Normalize(GLKVector3CrossProduct(self.front, self.up)),
+            cameraSpeed);
+    if (loc.x - prevLoc.x > 0) {
+        self.pos = GLKVector3Add(self.pos, tmp);
+    } else {
+        self.pos = GLKVector3Subtract(self.pos, tmp);
+    }
+
 }
 
 - (void)dealloc {
@@ -256,18 +291,6 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
-}
-
-- (void)setCubes:(GLKVector3 *)cubes {
-    if (cubes != NULL) {
-        for (int i = 0; i < 10; i++) {
-            _cubes[i] = cubes[i];
-        }
-    }
-}
-
-- (GLKVector3 *)cubes {
-    return _cubes;
 }
 
 @end

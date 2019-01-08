@@ -17,5 +17,5 @@
 
 + (GLKMatrix4)perspective:(float)degrees aspect:(float)aspect near:(float)near far:(float)far;
 
-+ (GLKMatrix4)lookAt:(float *)eye center:(float *)center up:(float *)up;
++ (GLKMatrix4)lookAt:(GLKVector3)eye center:(GLKVector3)center up:(GLKVector3)up;
 @end

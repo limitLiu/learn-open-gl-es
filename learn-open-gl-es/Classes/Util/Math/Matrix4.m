@@ -24,8 +24,8 @@
     return GLKMatrix4MakePerspective(radians, aspect, near, far);
 }
 
-+ (GLKMatrix4)lookAt:(float *)eye center:(float *)center up:(float *)up {
-    return GLKMatrix4MakeLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
++ (GLKMatrix4)lookAt:(GLKVector3)eye center:(GLKVector3)center up:(GLKVector3)up {
+    return GLKMatrix4MakeLookAt(eye.x, eye.y, eye.z, center.x, center.y, center.z, up.x, up.y, up.z);
 }
 
 @end

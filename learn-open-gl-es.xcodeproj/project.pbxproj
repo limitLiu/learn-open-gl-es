@@ -387,7 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G83A8HGB49;
+				DEVELOPMENT_TEAM = XM22UA96YP;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = "learn-open-gl-es/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -395,7 +395,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.wu-chinese.gl-es";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.wu-chinese.learn-open-gl-es";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = arm64;
@@ -407,7 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G83A8HGB49;
+				DEVELOPMENT_TEAM = XM22UA96YP;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = "learn-open-gl-es/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -415,7 +415,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.wu-chinese.gl-es";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.wu-chinese.learn-open-gl-es";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = arm64;
