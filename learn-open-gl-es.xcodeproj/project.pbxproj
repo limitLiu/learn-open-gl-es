@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1701DEC824A71A3000AADEF4 /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1701DEC724A71A3000AADEF4 /* Shader.mm */; };
+		1701DED124A74E7300AADEF4 /* GLUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1701DED024A74E7300AADEF4 /* GLUtil.mm */; };
 		17319661217CBD2600E22FCE /* textures.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17319660217CBD2500E22FCE /* textures.bundle */; };
-		1755D0DD21838EF000A4BEEF /* Dynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755D0DC21838EF000A4BEEF /* Dynamic.m */; };
-		177A307021A31414004388C0 /* Matrix4.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A306F21A31414004388C0 /* Matrix4.m */; };
-		17D11B4D216E573E006D4361 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B47216E573E006D4361 /* ViewController.m */; };
+		17D11B4D216E573E006D4361 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B47216E573E006D4361 /* ViewController.mm */; };
 		17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B4A216E573E006D4361 /* AppDelegate.m */; };
-		17D11B52216E589A006D4361 /* shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B51216E589A006D4361 /* shader.frag */; };
-		17D11B54216E58A7006D4361 /* shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B53216E58A7006D4361 /* shader.vert */; };
-		17D11B58216E59E1006D4361 /* ShaderProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B57216E59E1006D4361 /* ShaderProcessor.m */; };
-		456B7780E1A44BE285D9CC60 /* Vector3.m in Sources */ = {isa = PBXBuildFile; fileRef = 456B7539F33A5F163CDA6FE5 /* Vector3.m */; };
-		456B7870A5884C3791C60A0A /* NSDate+func.m in Sources */ = {isa = PBXBuildFile; fileRef = 456B723C50DD49F6FBD17D76 /* NSDate+func.m */; };
+		6236B0D32E221B643206C829 /* light.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6236B9B3AB1B78E98BE57D71 /* light.frag */; };
+		6236B6BA61359E77F7F334E7 /* lamp.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6236B8EE14D9983EDB2A2444 /* lamp.frag */; };
+		6236BC1F77FB1086CB1F3EB8 /* lamp.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6236BC96A15FF9EE3B2A1DE1 /* lamp.vert */; };
+		6236BEAB9D5D811E1379ADA7 /* light.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6236B5AAFC3F7150B7FFEC54 /* light.vert */; };
+		6236BFB67CBE487E5006905E /* Timer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6236B3C6E7FEB0B310B67A6E /* Timer.mm */; };
 		BB74F3F1216DD0100016BFEB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB74F3F0216DD0100016BFEB /* OpenGLES.framework */; };
 		BB74F3F3216DD01A0016BFEB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB74F3F2216DD01A0016BFEB /* GLKit.framework */; };
 		BB8F0841216A66C70036726C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8F083F216A66C70036726C /* Main.storyboard */; };
@@ -26,23 +26,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1701DEC624A71A3000AADEF4 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
+		1701DEC724A71A3000AADEF4 /* Shader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Shader.mm; sourceTree = "<group>"; };
+		1701DEC924A72F2B00AADEF4 /* Matrix4.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Matrix4.hpp; sourceTree = "<group>"; };
+		1701DECC24A73C3000AADEF4 /* Vector4.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector4.hpp; sourceTree = "<group>"; };
+		1701DECF24A74E7300AADEF4 /* GLUtil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLUtil.hpp; sourceTree = "<group>"; };
+		1701DED024A74E7300AADEF4 /* GLUtil.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUtil.mm; sourceTree = "<group>"; };
 		17319660217CBD2500E22FCE /* textures.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = textures.bundle; sourceTree = "<group>"; };
-		1755D0DB21838EF000A4BEEF /* Dynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dynamic.h; sourceTree = "<group>"; };
-		1755D0DC21838EF000A4BEEF /* Dynamic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dynamic.m; sourceTree = "<group>"; };
-		177A306E21A31414004388C0 /* Matrix4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
-		177A306F21A31414004388C0 /* Matrix4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Matrix4.m; sourceTree = "<group>"; };
-		17D11B47216E573E006D4361 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		17D11B47216E573E006D4361 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		17D11B48216E573E006D4361 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		17D11B4A216E573E006D4361 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		17D11B4B216E573E006D4361 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		17D11B51216E589A006D4361 /* shader.frag */ = {isa = PBXFileReference; lastKnownFileType = file.glsl; path = shader.frag; sourceTree = "<group>"; };
-		17D11B53216E58A7006D4361 /* shader.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.vert; sourceTree = "<group>"; };
-		17D11B56216E59E1006D4361 /* ShaderProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderProcessor.h; sourceTree = "<group>"; };
-		17D11B57216E59E1006D4361 /* ShaderProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShaderProcessor.m; sourceTree = "<group>"; };
-		456B723C50DD49F6FBD17D76 /* NSDate+func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+func.m"; sourceTree = "<group>"; };
-		456B7539F33A5F163CDA6FE5 /* Vector3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vector3.m; sourceTree = "<group>"; };
-		456B7830E6855BBCB7DD9525 /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
-		456B79B5ABD97C990017773D /* NSDate+func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+func.h"; sourceTree = "<group>"; };
+		6236B3C6E7FEB0B310B67A6E /* Timer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Timer.mm; sourceTree = "<group>"; };
+		6236B5AAFC3F7150B7FFEC54 /* light.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = light.vert; sourceTree = "<group>"; };
+		6236B6515C1EEFA8E78F3424 /* Timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
+		6236B8EE14D9983EDB2A2444 /* lamp.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = lamp.frag; sourceTree = "<group>"; };
+		6236B92505EE1B68B64B9AEF /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		6236B9B3AB1B78E98BE57D71 /* light.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = light.frag; sourceTree = "<group>"; };
+		6236BC96A15FF9EE3B2A1DE1 /* lamp.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = lamp.vert; sourceTree = "<group>"; };
+		6236BF053F1791D02F33AAAA /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
 		BB74F3F0216DD0100016BFEB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB74F3F2216DD01A0016BFEB /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		BB8F0836216A66C70036726C /* learn-open-gl-es.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "learn-open-gl-es.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,13 +68,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		173DC9C724A849FB00E038C7 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				6236BC96A15FF9EE3B2A1DE1 /* lamp.vert */,
+				6236B8EE14D9983EDB2A2444 /* lamp.frag */,
+				6236B9B3AB1B78E98BE57D71 /* light.frag */,
+				6236B5AAFC3F7150B7FFEC54 /* light.vert */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
 		177A306A21A313E9004388C0 /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				177A306E21A31414004388C0 /* Matrix4.h */,
-				177A306F21A31414004388C0 /* Matrix4.m */,
-				456B7539F33A5F163CDA6FE5 /* Vector3.m */,
-				456B7830E6855BBCB7DD9525 /* Vector3.h */,
+				1701DEC924A72F2B00AADEF4 /* Matrix4.hpp */,
+				1701DECC24A73C3000AADEF4 /* Vector4.hpp */,
+				6236BF053F1791D02F33AAAA /* Vector3.hpp */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -93,7 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				17D11B48216E573E006D4361 /* ViewController.h */,
-				17D11B47216E573E006D4361 /* ViewController.m */,
+				17D11B47216E573E006D4361 /* ViewController.mm */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -110,12 +122,11 @@
 		17D11B4C216E573E006D4361 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				173DC9C724A849FB00E038C7 /* shaders */,
 				17319660217CBD2500E22FCE /* textures.bundle */,
 				BB8F083F216A66C70036726C /* Main.storyboard */,
 				BB8F0842216A66C90036726C /* Assets.xcassets */,
 				BB8F0844216A66C90036726C /* LaunchScreen.storyboard */,
-				17D11B51216E589A006D4361 /* shader.frag */,
-				17D11B53216E58A7006D4361 /* shader.vert */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -124,12 +135,13 @@
 			isa = PBXGroup;
 			children = (
 				177A306A21A313E9004388C0 /* Math */,
-				17D11B56216E59E1006D4361 /* ShaderProcessor.h */,
-				17D11B57216E59E1006D4361 /* ShaderProcessor.m */,
-				456B723C50DD49F6FBD17D76 /* NSDate+func.m */,
-				456B79B5ABD97C990017773D /* NSDate+func.h */,
-				1755D0DB21838EF000A4BEEF /* Dynamic.h */,
-				1755D0DC21838EF000A4BEEF /* Dynamic.m */,
+				1701DEC624A71A3000AADEF4 /* Shader.hpp */,
+				1701DEC724A71A3000AADEF4 /* Shader.mm */,
+				1701DECF24A74E7300AADEF4 /* GLUtil.hpp */,
+				1701DED024A74E7300AADEF4 /* GLUtil.mm */,
+				6236B3C6E7FEB0B310B67A6E /* Timer.mm */,
+				6236B6515C1EEFA8E78F3424 /* Timer.hpp */,
+				6236B92505EE1B68B64B9AEF /* Camera.hpp */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -196,7 +208,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = "";
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = limit;
 				TargetAttributes = {
 					BB8F0835216A66C70036726C = {
@@ -228,11 +240,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB8F0846216A66C90036726C /* LaunchScreen.storyboard in Resources */,
-				17D11B54216E58A7006D4361 /* shader.vert in Resources */,
 				BB8F0843216A66C90036726C /* Assets.xcassets in Resources */,
 				17319661217CBD2600E22FCE /* textures.bundle in Resources */,
 				BB8F0841216A66C70036726C /* Main.storyboard in Resources */,
-				17D11B52216E589A006D4361 /* shader.frag in Resources */,
+				6236BC1F77FB1086CB1F3EB8 /* lamp.vert in Resources */,
+				6236B6BA61359E77F7F334E7 /* lamp.frag in Resources */,
+				6236B0D32E221B643206C829 /* light.frag in Resources */,
+				6236BEAB9D5D811E1379ADA7 /* light.vert in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,14 +257,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D11B4D216E573E006D4361 /* ViewController.m in Sources */,
+				17D11B4D216E573E006D4361 /* ViewController.mm in Sources */,
 				BB8F0849216A66C90036726C /* main.m in Sources */,
+				1701DED124A74E7300AADEF4 /* GLUtil.mm in Sources */,
+				1701DEC824A71A3000AADEF4 /* Shader.mm in Sources */,
 				17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */,
-				17D11B58216E59E1006D4361 /* ShaderProcessor.m in Sources */,
-				177A307021A31414004388C0 /* Matrix4.m in Sources */,
-				456B7870A5884C3791C60A0A /* NSDate+func.m in Sources */,
-				1755D0DD21838EF000A4BEEF /* Dynamic.m in Sources */,
-				456B7780E1A44BE285D9CC60 /* Vector3.m in Sources */,
+				6236BFB67CBE487E5006905E /* Timer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -380,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -396,7 +408,7 @@
 				DEVELOPMENT_TEAM = G83A8HGB49;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = "learn-open-gl-es/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,7 +428,7 @@
 				DEVELOPMENT_TEAM = G83A8HGB49;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = "learn-open-gl-es/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
