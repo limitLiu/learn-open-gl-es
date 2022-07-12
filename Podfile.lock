@@ -1,0 +1,23 @@
+PODS:
+  - glm (0.0.1):
+    - glm/glm (= 0.0.1)
+  - glm/glm (0.0.1)
+  - OpenCV (4.3.0)
+
+DEPENDENCIES:
+  - glm (from `./specs/glm`)
+  - OpenCV (from `./specs/OpenCV.podspec.json`)
+
+EXTERNAL SOURCES:
+  glm:
+    :path: "./specs/glm"
+  OpenCV:
+    :podspec: "./specs/OpenCV.podspec.json"
+
+SPEC CHECKSUMS:
+  glm: 3bb6c6741e72fbcfa2a3e995d405ecf3f8d96622
+  OpenCV: f21bdb1e66c195e98c7bbc8fb5be99c2cd342c92
+
+PODFILE CHECKSUM: 7ca01b3968bae38ad6c9c7953f17b38f422dced6
+
+COCOAPODS: 1.11.3

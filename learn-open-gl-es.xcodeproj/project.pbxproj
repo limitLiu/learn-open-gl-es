@@ -7,52 +7,109 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1701DEC824A71A3000AADEF4 /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1701DEC724A71A3000AADEF4 /* Shader.mm */; };
-		1701DED124A74E7300AADEF4 /* GLUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1701DED024A74E7300AADEF4 /* GLUtil.mm */; };
-		17319661217CBD2600E22FCE /* textures.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17319660217CBD2500E22FCE /* textures.bundle */; };
-		17D11B4D216E573E006D4361 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B47216E573E006D4361 /* ViewController.mm */; };
-		17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B4A216E573E006D4361 /* AppDelegate.m */; };
-		6236B0D32E221B643206C829 /* light.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6236B9B3AB1B78E98BE57D71 /* light.frag */; };
-		6236B6BA61359E77F7F334E7 /* lamp.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6236B8EE14D9983EDB2A2444 /* lamp.frag */; };
-		6236BC1F77FB1086CB1F3EB8 /* lamp.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6236BC96A15FF9EE3B2A1DE1 /* lamp.vert */; };
-		6236BEAB9D5D811E1379ADA7 /* light.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6236B5AAFC3F7150B7FFEC54 /* light.vert */; };
-		6236BFB67CBE487E5006905E /* Timer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6236B3C6E7FEB0B310B67A6E /* Timer.mm */; };
-		BB74F3F1216DD0100016BFEB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB74F3F0216DD0100016BFEB /* OpenGLES.framework */; };
-		BB74F3F3216DD01A0016BFEB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB74F3F2216DD01A0016BFEB /* GLKit.framework */; };
-		BB8F0841216A66C70036726C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8F083F216A66C70036726C /* Main.storyboard */; };
-		BB8F0843216A66C90036726C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB8F0842216A66C90036726C /* Assets.xcassets */; };
-		BB8F0846216A66C90036726C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8F0844216A66C90036726C /* LaunchScreen.storyboard */; };
-		BB8F0849216A66C90036726C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F0848216A66C90036726C /* main.m */; };
+		0F205DAE287D99E300DFF71C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D66287D99E300DFF71C /* AppDelegate.m */; };
+		0F205DAF287D99E300DFF71C /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D6A287D99E300DFF71C /* ViewController.mm */; };
+		0F205DB0287D99E300DFF71C /* LLCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D72287D99E300DFF71C /* LLCube.cpp */; };
+		0F205DB1287D99E300DFF71C /* LLTextureRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D77287D99E300DFF71C /* LLTextureRenderer.cpp */; };
+		0F205DB2287D99E300DFF71C /* LLScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D78287D99E300DFF71C /* LLScene.cpp */; };
+		0F205DB3287D99E300DFF71C /* LLImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D79287D99E300DFF71C /* LLImage.cpp */; };
+		0F205DB5287D99E300DFF71C /* LLVertexArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D81287D99E300DFF71C /* LLVertexArray.cpp */; };
+		0F205DB6287D99E300DFF71C /* LLYUVideo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D82287D99E300DFF71C /* LLYUVideo.cpp */; };
+		0F205DB7287D99E300DFF71C /* LLSticker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D83287D99E300DFF71C /* LLSticker.cpp */; };
+		0F205DB8287D99E300DFF71C /* LLCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D85287D99E300DFF71C /* LLCamera.cpp */; };
+		0F205DB9287D99E300DFF71C /* LLMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D87287D99E300DFF71C /* LLMesh.cpp */; };
+		0F205DBA287D99E300DFF71C /* LLModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D89287D99E300DFF71C /* LLModelLoader.cpp */; };
+		0F205DBB287D99E300DFF71C /* LLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D8A287D99E300DFF71C /* LLShader.cpp */; };
+		0F205DBC287D99E300DFF71C /* LLBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D8B287D99E300DFF71C /* LLBuffer.cpp */; };
+		0F205DBD287D99E300DFF71C /* TrackerWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D91287D99E300DFF71C /* TrackerWrapper.mm */; };
+		0F205DBE287D99E300DFF71C /* haar_roboman_ff_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 0F205D92287D99E300DFF71C /* haar_roboman_ff_alt2.xml */; };
+		0F205DBF287D99E300DFF71C /* roboman-landmark-model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0F205D93287D99E300DFF71C /* roboman-landmark-model.bin */; };
+		0F205DC0287D99E300DFF71C /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F205D95287D99E300DFF71C /* UIImage+OpenCV.mm */; };
+		0F205DC2287D99E300DFF71C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F205D9A287D99E300DFF71C /* Assets.xcassets */; };
+		0F205DC3287D99E300DFF71C /* tortoise.obj in Resources */ = {isa = PBXBuildFile; fileRef = 0F205D9C287D99E300DFF71C /* tortoise.obj */; };
+		0F205DC4287D99E300DFF71C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F205D9D287D99E300DFF71C /* LaunchScreen.storyboard */; };
+		0F205DC5287D99E300DFF71C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F205D9F287D99E300DFF71C /* Main.storyboard */; };
+		0F205DC6287D99E300DFF71C /* textures.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DA1287D99E300DFF71C /* textures.bundle */; };
+		0F205DC7287D99E300DFF71C /* cube.frag in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DA3287D99E300DFF71C /* cube.frag */; };
+		0F205DC8287D99E300DFF71C /* yuv.frag in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DA4287D99E300DFF71C /* yuv.frag */; };
+		0F205DC9287D99E300DFF71C /* obj.frag in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DA5287D99E300DFF71C /* obj.frag */; };
+		0F205DCA287D99E300DFF71C /* sticker.vert in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DA6287D99E300DFF71C /* sticker.vert */; };
+		0F205DCB287D99E300DFF71C /* texture.vert in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DA7287D99E300DFF71C /* texture.vert */; };
+		0F205DCC287D99E300DFF71C /* yuv.vert in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DA8287D99E300DFF71C /* yuv.vert */; };
+		0F205DCD287D99E300DFF71C /* cube.vert in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DA9287D99E300DFF71C /* cube.vert */; };
+		0F205DCE287D99E300DFF71C /* texture.frag in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DAA287D99E300DFF71C /* texture.frag */; };
+		0F205DCF287D99E300DFF71C /* sticker.frag in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DAB287D99E300DFF71C /* sticker.frag */; };
+		0F205DD0287D99E300DFF71C /* obj.vert in Resources */ = {isa = PBXBuildFile; fileRef = 0F205DAC287D99E300DFF71C /* obj.vert */; };
+		0F92AE0A287D9B7400BD18A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F92AE09287D9B7400BD18A5 /* main.m */; };
+		0F92AE0B287D9E4700BD18A5 /* libfacetracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F205D97287D99E300DFF71C /* libfacetracker.a */; };
+		5DFCE37CBEFECCBC84EA37C7 /* Pods_learn_open_gl_es.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E40F90F2CF0FCFB147AB2E /* Pods_learn_open_gl_es.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1701DEC624A71A3000AADEF4 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
-		1701DEC724A71A3000AADEF4 /* Shader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Shader.mm; sourceTree = "<group>"; };
-		1701DEC924A72F2B00AADEF4 /* Matrix4.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Matrix4.hpp; sourceTree = "<group>"; };
-		1701DECC24A73C3000AADEF4 /* Vector4.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector4.hpp; sourceTree = "<group>"; };
-		1701DECF24A74E7300AADEF4 /* GLUtil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLUtil.hpp; sourceTree = "<group>"; };
-		1701DED024A74E7300AADEF4 /* GLUtil.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUtil.mm; sourceTree = "<group>"; };
-		17319660217CBD2500E22FCE /* textures.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = textures.bundle; sourceTree = "<group>"; };
-		17D11B47216E573E006D4361 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		17D11B48216E573E006D4361 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		17D11B4A216E573E006D4361 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		17D11B4B216E573E006D4361 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6236B3C6E7FEB0B310B67A6E /* Timer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Timer.mm; sourceTree = "<group>"; };
-		6236B5AAFC3F7150B7FFEC54 /* light.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = light.vert; sourceTree = "<group>"; };
-		6236B6515C1EEFA8E78F3424 /* Timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
-		6236B8EE14D9983EDB2A2444 /* lamp.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = lamp.frag; sourceTree = "<group>"; };
-		6236B92505EE1B68B64B9AEF /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
-		6236B9B3AB1B78E98BE57D71 /* light.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = light.frag; sourceTree = "<group>"; };
-		6236BC96A15FF9EE3B2A1DE1 /* lamp.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = lamp.vert; sourceTree = "<group>"; };
-		6236BF053F1791D02F33AAAA /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
+		01E40F90F2CF0FCFB147AB2E /* Pods_learn_open_gl_es.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_learn_open_gl_es.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F205D64287D99E300DFF71C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0F205D66287D99E300DFF71C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0F205D6A287D99E300DFF71C /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		0F205D6B287D99E300DFF71C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0F205D71287D99E300DFF71C /* LLTexture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLTexture.hpp; sourceTree = "<group>"; };
+		0F205D72287D99E300DFF71C /* LLCube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLCube.cpp; sourceTree = "<group>"; };
+		0F205D73287D99E300DFF71C /* LLMesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLMesh.hpp; sourceTree = "<group>"; };
+		0F205D74287D99E300DFF71C /* LLModelLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLModelLoader.hpp; sourceTree = "<group>"; };
+		0F205D75287D99E300DFF71C /* LLBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLBuffer.hpp; sourceTree = "<group>"; };
+		0F205D76287D99E300DFF71C /* LLShader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLShader.hpp; sourceTree = "<group>"; };
+		0F205D77287D99E300DFF71C /* LLTextureRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLTextureRenderer.cpp; sourceTree = "<group>"; };
+		0F205D78287D99E300DFF71C /* LLScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLScene.cpp; sourceTree = "<group>"; };
+		0F205D79287D99E300DFF71C /* LLImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLImage.cpp; sourceTree = "<group>"; };
+		0F205D7B287D99E300DFF71C /* LLVertexArray.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLVertexArray.hpp; sourceTree = "<group>"; };
+		0F205D7C287D99E300DFF71C /* LLSticker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLSticker.hpp; sourceTree = "<group>"; };
+		0F205D7D287D99E300DFF71C /* LLYUVideo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLYUVideo.hpp; sourceTree = "<group>"; };
+		0F205D7E287D99E300DFF71C /* LLCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLCamera.hpp; sourceTree = "<group>"; };
+		0F205D80287D99E300DFF71C /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		0F205D81287D99E300DFF71C /* LLVertexArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLVertexArray.cpp; sourceTree = "<group>"; };
+		0F205D82287D99E300DFF71C /* LLYUVideo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLYUVideo.cpp; sourceTree = "<group>"; };
+		0F205D83287D99E300DFF71C /* LLSticker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLSticker.cpp; sourceTree = "<group>"; };
+		0F205D84287D99E300DFF71C /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		0F205D85287D99E300DFF71C /* LLCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLCamera.cpp; sourceTree = "<group>"; };
+		0F205D86287D99E300DFF71C /* LLCube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLCube.hpp; sourceTree = "<group>"; };
+		0F205D87287D99E300DFF71C /* LLMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLMesh.cpp; sourceTree = "<group>"; };
+		0F205D88287D99E300DFF71C /* LLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLModel.h; sourceTree = "<group>"; };
+		0F205D89287D99E300DFF71C /* LLModelLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLModelLoader.cpp; sourceTree = "<group>"; };
+		0F205D8A287D99E300DFF71C /* LLShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLShader.cpp; sourceTree = "<group>"; };
+		0F205D8B287D99E300DFF71C /* LLBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LLBuffer.cpp; sourceTree = "<group>"; };
+		0F205D8C287D99E300DFF71C /* LLTextureRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLTextureRenderer.hpp; sourceTree = "<group>"; };
+		0F205D8D287D99E300DFF71C /* LLScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLScene.hpp; sourceTree = "<group>"; };
+		0F205D8E287D99E300DFF71C /* LLDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDefine.h; sourceTree = "<group>"; };
+		0F205D8F287D99E300DFF71C /* LLImage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LLImage.hpp; sourceTree = "<group>"; };
+		0F205D91287D99E300DFF71C /* TrackerWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TrackerWrapper.mm; sourceTree = "<group>"; };
+		0F205D92287D99E300DFF71C /* haar_roboman_ff_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haar_roboman_ff_alt2.xml; sourceTree = "<group>"; };
+		0F205D93287D99E300DFF71C /* roboman-landmark-model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "roboman-landmark-model.bin"; sourceTree = "<group>"; };
+		0F205D94287D99E300DFF71C /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		0F205D95287D99E300DFF71C /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		0F205D96287D99E300DFF71C /* tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tracker.h; sourceTree = "<group>"; };
+		0F205D97287D99E300DFF71C /* libfacetracker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfacetracker.a; sourceTree = "<group>"; };
+		0F205D98287D99E300DFF71C /* TrackerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerWrapper.h; sourceTree = "<group>"; };
+		0F205D9A287D99E300DFF71C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0F205D9C287D99E300DFF71C /* tortoise.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tortoise.obj; sourceTree = "<group>"; };
+		0F205D9E287D99E300DFF71C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0F205DA0287D99E300DFF71C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0F205DA1287D99E300DFF71C /* textures.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = textures.bundle; sourceTree = "<group>"; };
+		0F205DA3287D99E300DFF71C /* cube.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cube.frag; sourceTree = "<group>"; };
+		0F205DA4287D99E300DFF71C /* yuv.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = yuv.frag; sourceTree = "<group>"; };
+		0F205DA5287D99E300DFF71C /* obj.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = obj.frag; sourceTree = "<group>"; };
+		0F205DA6287D99E300DFF71C /* sticker.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = sticker.vert; sourceTree = "<group>"; };
+		0F205DA7287D99E300DFF71C /* texture.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.vert; sourceTree = "<group>"; };
+		0F205DA8287D99E300DFF71C /* yuv.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = yuv.vert; sourceTree = "<group>"; };
+		0F205DA9287D99E300DFF71C /* cube.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cube.vert; sourceTree = "<group>"; };
+		0F205DAA287D99E300DFF71C /* texture.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.frag; sourceTree = "<group>"; };
+		0F205DAB287D99E300DFF71C /* sticker.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = sticker.frag; sourceTree = "<group>"; };
+		0F205DAC287D99E300DFF71C /* obj.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = obj.vert; sourceTree = "<group>"; };
+		0F92AE09287D9B7400BD18A5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1F4017FE846130A5D7F4FB7C /* Pods-learn-open-gl-es.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-learn-open-gl-es.release.xcconfig"; path = "Target Support Files/Pods-learn-open-gl-es/Pods-learn-open-gl-es.release.xcconfig"; sourceTree = "<group>"; };
+		65295FC041123B356F4A3A62 /* Pods-learn-open-gl-es.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-learn-open-gl-es.debug.xcconfig"; path = "Target Support Files/Pods-learn-open-gl-es/Pods-learn-open-gl-es.debug.xcconfig"; sourceTree = "<group>"; };
 		BB74F3F0216DD0100016BFEB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB74F3F2216DD01A0016BFEB /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		BB8F0836216A66C70036726C /* learn-open-gl-es.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "learn-open-gl-es.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB8F0840216A66C70036726C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BB8F0842216A66C90036726C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BB8F0845216A66C90036726C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB8F0847216A66C90036726C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB8F0848216A66C90036726C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,90 +117,181 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB74F3F3216DD01A0016BFEB /* GLKit.framework in Frameworks */,
-				BB74F3F1216DD0100016BFEB /* OpenGLES.framework in Frameworks */,
+				0F92AE0B287D9E4700BD18A5 /* libfacetracker.a in Frameworks */,
+				5DFCE37CBEFECCBC84EA37C7 /* Pods_learn_open_gl_es.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		173DC9C724A849FB00E038C7 /* shaders */ = {
+		0F205D62287D99E300DFF71C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6236BC96A15FF9EE3B2A1DE1 /* lamp.vert */,
-				6236B8EE14D9983EDB2A2444 /* lamp.frag */,
-				6236B9B3AB1B78E98BE57D71 /* light.frag */,
-				6236B5AAFC3F7150B7FFEC54 /* light.vert */,
-			);
-			path = shaders;
-			sourceTree = "<group>";
-		};
-		177A306A21A313E9004388C0 /* Math */ = {
-			isa = PBXGroup;
-			children = (
-				1701DEC924A72F2B00AADEF4 /* Matrix4.hpp */,
-				1701DECC24A73C3000AADEF4 /* Vector4.hpp */,
-				6236BF053F1791D02F33AAAA /* Vector3.hpp */,
-			);
-			path = Math;
-			sourceTree = "<group>";
-		};
-		17D11B45216E573E006D4361 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				17D11B49216E573E006D4361 /* AppDelegate */,
-				17D11B46216E573E006D4361 /* ViewController */,
-				17D11B4C216E573E006D4361 /* Resource */,
-				17D11B55216E598B006D4361 /* Util */,
-				BB8F0848216A66C90036726C /* main.m */,
+				0F205D63287D99E300DFF71C /* Delegate */,
+				0F205D68287D99E300DFF71C /* Utils */,
+				0F205D69287D99E300DFF71C /* Controller */,
+				0F205D6C287D99E300DFF71C /* Model */,
+				0F205D6D287D99E300DFF71C /* View */,
+				0F205D6E287D99E300DFF71C /* Lib */,
+				0F205D99287D99E300DFF71C /* Resource */,
+				0F92AE09287D9B7400BD18A5 /* main.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		17D11B46216E573E006D4361 /* ViewController */ = {
+		0F205D63287D99E300DFF71C /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				17D11B48216E573E006D4361 /* ViewController.h */,
-				17D11B47216E573E006D4361 /* ViewController.mm */,
+				0F205D64287D99E300DFF71C /* AppDelegate.h */,
+				0F205D66287D99E300DFF71C /* AppDelegate.m */,
 			);
-			path = ViewController;
+			path = Delegate;
 			sourceTree = "<group>";
 		};
-		17D11B49216E573E006D4361 /* AppDelegate */ = {
+		0F205D68287D99E300DFF71C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				17D11B4A216E573E006D4361 /* AppDelegate.m */,
-				17D11B4B216E573E006D4361 /* AppDelegate.h */,
 			);
-			path = AppDelegate;
+			path = Utils;
 			sourceTree = "<group>";
 		};
-		17D11B4C216E573E006D4361 /* Resource */ = {
+		0F205D69287D99E300DFF71C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				173DC9C724A849FB00E038C7 /* shaders */,
-				17319660217CBD2500E22FCE /* textures.bundle */,
-				BB8F083F216A66C70036726C /* Main.storyboard */,
-				BB8F0842216A66C90036726C /* Assets.xcassets */,
-				BB8F0844216A66C90036726C /* LaunchScreen.storyboard */,
+				0F205D6B287D99E300DFF71C /* ViewController.h */,
+				0F205D6A287D99E300DFF71C /* ViewController.mm */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0F205D6C287D99E300DFF71C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F205D6D287D99E300DFF71C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F205D6E287D99E300DFF71C /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				0F205D6F287D99E300DFF71C /* Core */,
+				0F205D90287D99E300DFF71C /* FaceTracker */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		0F205D6F287D99E300DFF71C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0F205D70287D99E300DFF71C /* Cpp */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0F205D70287D99E300DFF71C /* Cpp */ = {
+			isa = PBXGroup;
+			children = (
+				0F205D84287D99E300DFF71C /* common.h */,
+				0F205D8E287D99E300DFF71C /* LLDefine.h */,
+				0F205D88287D99E300DFF71C /* LLModel.h */,
+				0F205D80287D99E300DFF71C /* stb_image.h */,
+				0F205D71287D99E300DFF71C /* LLTexture.hpp */,
+				0F205D86287D99E300DFF71C /* LLCube.hpp */,
+				0F205D72287D99E300DFF71C /* LLCube.cpp */,
+				0F205D73287D99E300DFF71C /* LLMesh.hpp */,
+				0F205D87287D99E300DFF71C /* LLMesh.cpp */,
+				0F205D74287D99E300DFF71C /* LLModelLoader.hpp */,
+				0F205D89287D99E300DFF71C /* LLModelLoader.cpp */,
+				0F205D75287D99E300DFF71C /* LLBuffer.hpp */,
+				0F205D8B287D99E300DFF71C /* LLBuffer.cpp */,
+				0F205D76287D99E300DFF71C /* LLShader.hpp */,
+				0F205D8A287D99E300DFF71C /* LLShader.cpp */,
+				0F205D8C287D99E300DFF71C /* LLTextureRenderer.hpp */,
+				0F205D77287D99E300DFF71C /* LLTextureRenderer.cpp */,
+				0F205D8D287D99E300DFF71C /* LLScene.hpp */,
+				0F205D78287D99E300DFF71C /* LLScene.cpp */,
+				0F205D8F287D99E300DFF71C /* LLImage.hpp */,
+				0F205D79287D99E300DFF71C /* LLImage.cpp */,
+				0F205D7B287D99E300DFF71C /* LLVertexArray.hpp */,
+				0F205D81287D99E300DFF71C /* LLVertexArray.cpp */,
+				0F205D7D287D99E300DFF71C /* LLYUVideo.hpp */,
+				0F205D82287D99E300DFF71C /* LLYUVideo.cpp */,
+				0F205D7E287D99E300DFF71C /* LLCamera.hpp */,
+				0F205D85287D99E300DFF71C /* LLCamera.cpp */,
+				0F205D7C287D99E300DFF71C /* LLSticker.hpp */,
+				0F205D83287D99E300DFF71C /* LLSticker.cpp */,
+			);
+			path = Cpp;
+			sourceTree = "<group>";
+		};
+		0F205D90287D99E300DFF71C /* FaceTracker */ = {
+			isa = PBXGroup;
+			children = (
+				0F205D98287D99E300DFF71C /* TrackerWrapper.h */,
+				0F205D91287D99E300DFF71C /* TrackerWrapper.mm */,
+				0F205D92287D99E300DFF71C /* haar_roboman_ff_alt2.xml */,
+				0F205D93287D99E300DFF71C /* roboman-landmark-model.bin */,
+				0F205D94287D99E300DFF71C /* UIImage+OpenCV.h */,
+				0F205D95287D99E300DFF71C /* UIImage+OpenCV.mm */,
+				0F205D96287D99E300DFF71C /* tracker.h */,
+				0F205D97287D99E300DFF71C /* libfacetracker.a */,
+			);
+			path = FaceTracker;
+			sourceTree = "<group>";
+		};
+		0F205D99287D99E300DFF71C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0F205D9A287D99E300DFF71C /* Assets.xcassets */,
+				0F205D9B287D99E300DFF71C /* models */,
+				0F205D9D287D99E300DFF71C /* LaunchScreen.storyboard */,
+				0F205D9F287D99E300DFF71C /* Main.storyboard */,
+				0F205DA1287D99E300DFF71C /* textures.bundle */,
+				0F205DA2287D99E300DFF71C /* shaders */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		17D11B55216E598B006D4361 /* Util */ = {
+		0F205D9B287D99E300DFF71C /* models */ = {
 			isa = PBXGroup;
 			children = (
-				177A306A21A313E9004388C0 /* Math */,
-				1701DEC624A71A3000AADEF4 /* Shader.hpp */,
-				1701DEC724A71A3000AADEF4 /* Shader.mm */,
-				1701DECF24A74E7300AADEF4 /* GLUtil.hpp */,
-				1701DED024A74E7300AADEF4 /* GLUtil.mm */,
-				6236B3C6E7FEB0B310B67A6E /* Timer.mm */,
-				6236B6515C1EEFA8E78F3424 /* Timer.hpp */,
-				6236B92505EE1B68B64B9AEF /* Camera.hpp */,
+				0F205D9C287D99E300DFF71C /* tortoise.obj */,
 			);
-			path = Util;
+			path = models;
+			sourceTree = "<group>";
+		};
+		0F205DA2287D99E300DFF71C /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				0F205DA3287D99E300DFF71C /* cube.frag */,
+				0F205DA4287D99E300DFF71C /* yuv.frag */,
+				0F205DA5287D99E300DFF71C /* obj.frag */,
+				0F205DA6287D99E300DFF71C /* sticker.vert */,
+				0F205DA7287D99E300DFF71C /* texture.vert */,
+				0F205DA8287D99E300DFF71C /* yuv.vert */,
+				0F205DA9287D99E300DFF71C /* cube.vert */,
+				0F205DAA287D99E300DFF71C /* texture.frag */,
+				0F205DAB287D99E300DFF71C /* sticker.frag */,
+				0F205DAC287D99E300DFF71C /* obj.vert */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
+		8C41F212F1F53A43549C3B6B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65295FC041123B356F4A3A62 /* Pods-learn-open-gl-es.debug.xcconfig */,
+				1F4017FE846130A5D7F4FB7C /* Pods-learn-open-gl-es.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		BB74F3EF216DD0100016BFEB /* Frameworks */ = {
@@ -151,6 +299,7 @@
 			children = (
 				BB74F3F2216DD01A0016BFEB /* GLKit.framework */,
 				BB74F3F0216DD0100016BFEB /* OpenGLES.framework */,
+				01E40F90F2CF0FCFB147AB2E /* Pods_learn_open_gl_es.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,6 +310,7 @@
 				BB8F0838216A66C70036726C /* learn-open-gl-es */,
 				BB8F0837216A66C70036726C /* Products */,
 				BB74F3EF216DD0100016BFEB /* Frameworks */,
+				8C41F212F1F53A43549C3B6B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,7 +325,7 @@
 		BB8F0838216A66C70036726C /* learn-open-gl-es */ = {
 			isa = PBXGroup;
 			children = (
-				17D11B45216E573E006D4361 /* Classes */,
+				0F205D62287D99E300DFF71C /* Classes */,
 				BB8F0847216A66C90036726C /* Info.plist */,
 			);
 			path = "learn-open-gl-es";
@@ -188,6 +338,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB8F084C216A66C90036726C /* Build configuration list for PBXNativeTarget "learn-open-gl-es" */;
 			buildPhases = (
+				46249A740C860D4704615432 /* [CP] Check Pods Manifest.lock */,
 				BB8F0832216A66C70036726C /* Sources */,
 				BB8F0833216A66C70036726C /* Frameworks */,
 				BB8F0834216A66C70036726C /* Resources */,
@@ -239,50 +390,95 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB8F0846216A66C90036726C /* LaunchScreen.storyboard in Resources */,
-				BB8F0843216A66C90036726C /* Assets.xcassets in Resources */,
-				17319661217CBD2600E22FCE /* textures.bundle in Resources */,
-				BB8F0841216A66C70036726C /* Main.storyboard in Resources */,
-				6236BC1F77FB1086CB1F3EB8 /* lamp.vert in Resources */,
-				6236B6BA61359E77F7F334E7 /* lamp.frag in Resources */,
-				6236B0D32E221B643206C829 /* light.frag in Resources */,
-				6236BEAB9D5D811E1379ADA7 /* light.vert in Resources */,
+				0F205DBF287D99E300DFF71C /* roboman-landmark-model.bin in Resources */,
+				0F205DCE287D99E300DFF71C /* texture.frag in Resources */,
+				0F205DC9287D99E300DFF71C /* obj.frag in Resources */,
+				0F205DC2287D99E300DFF71C /* Assets.xcassets in Resources */,
+				0F205DC3287D99E300DFF71C /* tortoise.obj in Resources */,
+				0F205DCB287D99E300DFF71C /* texture.vert in Resources */,
+				0F205DC5287D99E300DFF71C /* Main.storyboard in Resources */,
+				0F205DC4287D99E300DFF71C /* LaunchScreen.storyboard in Resources */,
+				0F205DBE287D99E300DFF71C /* haar_roboman_ff_alt2.xml in Resources */,
+				0F205DC7287D99E300DFF71C /* cube.frag in Resources */,
+				0F205DCD287D99E300DFF71C /* cube.vert in Resources */,
+				0F205DCC287D99E300DFF71C /* yuv.vert in Resources */,
+				0F205DC8287D99E300DFF71C /* yuv.frag in Resources */,
+				0F205DC6287D99E300DFF71C /* textures.bundle in Resources */,
+				0F205DD0287D99E300DFF71C /* obj.vert in Resources */,
+				0F205DCA287D99E300DFF71C /* sticker.vert in Resources */,
+				0F205DCF287D99E300DFF71C /* sticker.frag in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46249A740C860D4704615432 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-learn-open-gl-es-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BB8F0832216A66C70036726C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D11B4D216E573E006D4361 /* ViewController.mm in Sources */,
-				BB8F0849216A66C90036726C /* main.m in Sources */,
-				1701DED124A74E7300AADEF4 /* GLUtil.mm in Sources */,
-				1701DEC824A71A3000AADEF4 /* Shader.mm in Sources */,
-				17D11B4E216E573E006D4361 /* AppDelegate.m in Sources */,
-				6236BFB67CBE487E5006905E /* Timer.mm in Sources */,
+				0F205DBB287D99E300DFF71C /* LLShader.cpp in Sources */,
+				0F205DBA287D99E300DFF71C /* LLModelLoader.cpp in Sources */,
+				0F205DAE287D99E300DFF71C /* AppDelegate.m in Sources */,
+				0F205DB7287D99E300DFF71C /* LLSticker.cpp in Sources */,
+				0F205DB5287D99E300DFF71C /* LLVertexArray.cpp in Sources */,
+				0F205DB2287D99E300DFF71C /* LLScene.cpp in Sources */,
+				0F205DB0287D99E300DFF71C /* LLCube.cpp in Sources */,
+				0F205DB9287D99E300DFF71C /* LLMesh.cpp in Sources */,
+				0F205DBD287D99E300DFF71C /* TrackerWrapper.mm in Sources */,
+				0F205DC0287D99E300DFF71C /* UIImage+OpenCV.mm in Sources */,
+				0F205DAF287D99E300DFF71C /* ViewController.mm in Sources */,
+				0F205DB3287D99E300DFF71C /* LLImage.cpp in Sources */,
+				0F205DB6287D99E300DFF71C /* LLYUVideo.cpp in Sources */,
+				0F205DB1287D99E300DFF71C /* LLTextureRenderer.cpp in Sources */,
+				0F205DB8287D99E300DFF71C /* LLCamera.cpp in Sources */,
+				0F92AE0A287D9B7400BD18A5 /* main.m in Sources */,
+				0F205DBC287D99E300DFF71C /* LLBuffer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BB8F083F216A66C70036726C /* Main.storyboard */ = {
+		0F205D9D287D99E300DFF71C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BB8F0840216A66C70036726C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BB8F0844216A66C90036726C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB8F0845216A66C90036726C /* Base */,
+				0F205D9E287D99E300DFF71C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0F205D9F287D99E300DFF71C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F205DA0287D99E300DFF71C /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -339,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -392,7 +588,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -402,16 +598,26 @@
 		};
 		BB8F084D216A66C90036726C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65295FC041123B356F4A3A62 /* Pods-learn-open-gl-es.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G83A8HGB49;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					GLES_SILENCE_DEPRECATION,
+				);
 				INFOPLIST_FILE = "learn-open-gl-es/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/learn-open-gl-es/Classes/Lib/FaceTracker",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.wu-chinese.gl-es";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,16 +628,21 @@
 		};
 		BB8F084E216A66C90036726C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F4017FE846130A5D7F4FB7C /* Pods-learn-open-gl-es.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G83A8HGB49;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = "learn-open-gl-es/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/learn-open-gl-es/Classes/Lib/FaceTracker",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.wu-chinese.gl-es";
 				PRODUCT_NAME = "$(TARGET_NAME)";
